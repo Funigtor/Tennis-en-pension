@@ -38,7 +38,7 @@ public class Match {
     // Un set est composé de 6 jeux, ou un tie-break en cas de 6-6
     int jeuxA = 0;
     int jeuxB = 0;
-    while (Math.abs(jeuxB-jeuxA) < 2 && (jeuxA < 6 || jeuxB < 6)){
+    while (Math.abs(jeuxB-jeuxA) < 2 || (jeuxA < 6 && jeuxB < 6)){
       if (jeuxA == 6 && jeuxB == 6){ // TODO condition différente pour dernier set
         // Il s'agit d'un tie-break
         return jouerTieBreak();
@@ -54,7 +54,7 @@ public class Match {
   private Joueur jouerJeu(){
     int scoreA = 0;
     int scoreB = 0;
-    while (Math.abs(scoreB-scoreA) < 2 && (scoreA < 4 || scoreB < 4) ){
+    while (Math.abs(scoreB-scoreA) < 2 || (scoreA < 4 && scoreB < 4) ){
       // On tire les valeurs des joueurs
       float valA = joueurA.getPuissance()/(100-enduA)*r.nextInt(100);
       float valB = joueurB.getPuissance()/(100-enduB)*r.nextInt(100);
@@ -71,7 +71,7 @@ public class Match {
   private Joueur jouerTieBreak(){ // TODO factorize me
     int scoreA = 0;
     int scoreB = 0;
-    while (Math.abs(scoreB-scoreA) < 2 && (scoreA < 7 || scoreB < 7) ){
+    while (Math.abs(scoreB-scoreA) < 2 || (scoreA < 7 && scoreB < 7) ){
       // On tire les valeurs des joueurs
       float valA = joueurA.getPuissance()/(100-enduA)*r.nextInt(100);
       float valB = joueurB.getPuissance()/(100-enduB)*r.nextInt(100);
