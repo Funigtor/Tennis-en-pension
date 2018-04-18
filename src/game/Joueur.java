@@ -52,4 +52,28 @@ public class Joueur {
     // Setter de points
     this.points = points;
   }
+
+  public String getNom() {
+    return nom;
+  }
+
+  public void setNom(String nom) {
+    this.nom = nom;
+  }
+
+  public String getPrenom() {
+    return prenom;
+  }
+
+  public void setPrenom(String prenom) {
+    this.prenom = prenom;
+  }
+
+  public Sexe getSexe() {
+    return sexe;
+  }
+
+  public void setSexe(Sexe sexe) {
+    this.sexe = sexe;
+  }
 }
