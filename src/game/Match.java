@@ -1,8 +1,12 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Match {
+
+   // On stocke la feuille de Match
+   private MatchHistory history;
 
   // Stocke les joueurs participants au match
   private Joueur joueurA;
@@ -26,14 +30,18 @@ public class Match {
   private int nbJeuxA;
   private int nbJeuxB;
 
-  public void jouerMatch() {
+  public MatchHistory jouerMatch() {
     // On va jouer des sets
     // On va compter les sets gagnés par les joueurs.
     int setsA = 0 ; // Compte les sets gagnés par A
     int setsB = 0 ;
     int nbSetMax = 2;
     if (inThreeSets) nbSetMax++;
-    while ((setsA < nbSetMax || setsB < nbSetMax) && vainqueur == null){
+    while ((setsA < nbSetMax || setsB < nbSetMax)){
+        // En cas d'abandon on aura un vainqueur, il faut sortir.
+        if (vainqueur != null) break;
+        // On ajoute le nouveau set
+        this.history.jeux.add(new ArrayList<Integer[]>());
       if (setsA == nbSetMax - 1 && setsB == nbSetMax - 1){
         // Il s'agit du dernier set
         if (jouerSet(true) == joueurA) setsA++;
@@ -44,8 +52,20 @@ public class Match {
         else setsB++;
       }
     }
-    // TODO On met à jour le score des joueurs
+    // On détermine le vainqueur si ce n'est déjà fait.
+      if (vainqueur == null) {
+          this.vainqueur = (setsA > setsB) ? joueurA : joueurB;
+      }
+      Joueur perdant = (setsA > setsB) ? joueurB : joueurA;
+    // On termine de remplir l'historique avec les informations de fin de match
     nbJeuxEcart = Math.abs(nbJeuxA-nbJeuxB);
+    this.history.setNbJeuxEcart(nbJeuxEcart);
+    this.history.setVainqueur(this.vainqueur);
+    // On met à jour le score des joueurs
+      int nbPointsGagnes = numeroDeLaRonde/7 * perdant.getCurrentPoints()/vainqueur.getCurrentPoints() * nbJeuxEcart;
+      vainqueur.addPoints(nbPointsGagnes);
+      perdant.addPoints(0); // Le perdant doit avancer aussi dans sa progression, même si elle est stable.
+    return this.history;
   }
 
   private Joueur jouerSet(boolean isFinalSet){
@@ -95,6 +115,9 @@ public class Match {
       if (valA > valB) scoreA++;
       else scoreB++;
     }
+    // le jeu est fini
+      Integer[] finalResult = {scoreA, scoreB};
+      this.history.jeux.get(this.history.jeux.size() -1).add(finalResult); // On a sauvegardé le jeu
     if (scoreA > scoreB) return joueurA;
     else return joueurB;
   }
@@ -116,6 +139,8 @@ public class Match {
     this.enduA = joueurA.getEnduranceMax();
     this.enduB = joueurB.getEnduranceMax();
     this.inThreeSets = false;
+    this.numeroDeLaRonde = 1; // On comptera 1 pour les marches hors tournoi
+    this.history = new MatchHistory(joueurA,joueurB,joueurA.getSexe(),numeroDeLaRonde);
   }
 
   public Match(Joueur joueurA, Joueur joueurB, boolean inThreeSets) {
@@ -124,6 +149,28 @@ public class Match {
     this.enduA = joueurA.getEnduranceMax();
     this.enduB = joueurB.getEnduranceMax();
     this.inThreeSets = inThreeSets;
+    this.numeroDeLaRonde = 1; // On comptera 1 pour les marches hors tournoi
+    this.history = new MatchHistory(joueurA,joueurB,joueurA.getSexe(),numeroDeLaRonde);
+  }
+
+  public Match(Joueur joueurA, Joueur joueurB, int numeroDeLaRonde) {
+    this.joueurA = joueurA;
+    this.joueurB = joueurB;
+    this.enduA = joueurA.getEnduranceMax();
+    this.enduB = joueurB.getEnduranceMax();
+    this.inThreeSets = false;
+    this.numeroDeLaRonde = numeroDeLaRonde;
+    this.history = new MatchHistory(joueurA,joueurB,joueurA.getSexe(),numeroDeLaRonde);
+  }
+
+  public Match(Joueur joueurA, Joueur joueurB, int numeroDeLaRonde, boolean inThreeSets) {
+    this.joueurA = joueurA;
+    this.joueurB = joueurB;
+    this.enduA = joueurA.getEnduranceMax();
+    this.enduB = joueurB.getEnduranceMax();
+    this.inThreeSets = inThreeSets;
+    this.numeroDeLaRonde = numeroDeLaRonde;
+    this.history = new MatchHistory(joueurA,joueurB,joueurA.getSexe(),numeroDeLaRonde);
   }
 
   public Joueur getJoueurA() {

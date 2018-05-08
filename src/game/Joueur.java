@@ -57,7 +57,8 @@ public class Joueur {
   }
 
   public void addPoints(int newPoints){
-    this.points.add(newPoints);
+      // Ajoute des points au compteur de points
+    this.points.add(this.getCurrentPoints() + newPoints);
   }
 
   public int getCurrentPoints(){
