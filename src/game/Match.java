@@ -20,6 +20,11 @@ public class Match {
 
   // On stockera le nom du vainqueur
   private Joueur vainqueur;
+  private int nbJeuxEcart;
+  private int numeroDeLaRonde;
+
+  private int nbJeuxA;
+  private int nbJeuxB;
 
   public void jouerMatch() {
     // On va jouer des sets
@@ -40,6 +45,7 @@ public class Match {
       }
     }
     // TODO On met à jour le score des joueurs
+    nbJeuxEcart = Math.abs(nbJeuxA-nbJeuxB);
   }
 
   private Joueur jouerSet(boolean isFinalSet){
@@ -58,6 +64,8 @@ public class Match {
         else jeuxB++;
       }
     }
+    nbJeuxA += jeuxA;
+    nbJeuxB += jeuxB;
     if (jeuxA > jeuxB) return joueurA;
     else return joueurB; // On retourne le joueur vainqueur
   }
@@ -131,6 +139,16 @@ public class Match {
   public Joueur getVainqueur() {
     // Getter de vainqueur
     return vainqueur;
+  }
+
+  public int getNbJeuxEcart() {
+    // Getter de nbJeuxEcart
+    return nbJeuxEcart;
+  }
+
+  public int getNumeroDeLaRonde() {
+    // Getter de numeroDeLaRonde
+    return numeroDeLaRonde;
   }
 
   private void setVainqueur(Joueur vainqueur) {

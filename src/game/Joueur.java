@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Joueur {
@@ -10,7 +12,7 @@ public class Joueur {
 
   private Integer puissance;
   private Integer enduranceMax;
-  private Integer points;
+  private List<Integer> points; // Représente l'historique
 
   public Joueur (String nom,String prenom, Sexe sexe){
     Random r = new Random();
@@ -19,7 +21,8 @@ public class Joueur {
     this.sexe = sexe;
     this.puissance = r.nextInt(100);
     this.enduranceMax = r.nextInt(100);
-    this.points = 0;
+    this.points = new ArrayList<>();
+    this.points.add(0);
   }
 
 
@@ -43,14 +46,22 @@ public class Joueur {
     this.enduranceMax = enduranceMax;
   }
 
-  public Integer getPoints() {
+  public List<Integer> getPoints() {
     // Getter de points
     return points;
   }
 
-  public void setPoints(Integer points) {
+  public void setPoints(List<Integer> points) {
     // Setter de points
     this.points = points;
+  }
+
+  public void addPoints(int newPoints){
+    this.points.add(newPoints);
+  }
+
+  public int getCurrentPoints(){
+    return this.points.get(this.points.size() - 1);
   }
 
   public String getNom() {
