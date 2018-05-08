@@ -46,6 +46,11 @@ public class Annee {
     return sexe;
   }
 
+  public void jouerAnnee(){
+      for (Tournoi i : tournaments)
+          i.jouerTournoi();
+  }
+
   public Annee(List<Joueur> participants, Sexe sexe) {
     this.tournaments = new ArrayList<Tournoi>();
     // On va insérer les 6 tournois prévus
