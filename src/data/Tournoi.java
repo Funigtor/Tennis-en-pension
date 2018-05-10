@@ -3,6 +3,7 @@ package data;
 import game.Joueur;
 import game.Match;
 import game.MatchHistory;
+import game.Sexe;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,6 +13,7 @@ public class Tournoi {
   private TypeTournoi type;
   private List<MatchHistory> matches;
   private List<Joueur> participants;
+  private Sexe sexe;
 
   // TODO Tournoi en trois sets
 
@@ -35,6 +37,7 @@ public class Tournoi {
     this.matches = matches;
   }
 
+  @Deprecated
   public Tournoi(TypeTournoi type) {
     // TODO remove ou autogénération
     this.type = type;
@@ -43,6 +46,8 @@ public class Tournoi {
   public Tournoi(TypeTournoi type, List<Joueur> participants) {
     this.type = type;
     this.participants = participants;
+    this.sexe = participants.get(0).getSexe();
+    this.matches = new ArrayList<>();
     // On assure des rencontres aléatoires aux joueurs
     Collections.shuffle(this.participants);
   }
@@ -63,9 +68,11 @@ public class Tournoi {
     for (int ronde = 1; ronde <= 7; ronde++){
       List<Joueur> vainqueurs = new ArrayList<>();
       // On va lancer tous les matchs du tournoi
+      // Génération
       List<Match> listMatches = new ArrayList<>();
       for (int i  = 0; i < joueursRestants.length; i += 2)
           listMatches.add(new Match(joueursRestants[i],joueursRestants[i+1]));
+      // Sauvegarde des matches
       for (Match j : listMatches) {
         this.matches.add(j.jouerMatch());
         vainqueurs.add(j.getVainqueur());

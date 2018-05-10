@@ -55,6 +55,7 @@ public class Annee {
 
   public Annee(List<Joueur> participants, Sexe sexe) {
     this.tournaments = new ArrayList<Tournoi>();
+    this.participants = participants;
     // On va insérer les 6 tournois prévus
     TypeTournoi types[] = {TypeTournoi.RolandGarros,TypeTournoi.USOpen,TypeTournoi.Wimbledon,TypeTournoi.IndianWells,
             TypeTournoi.Miami,TypeTournoi.OpenAustralie};
