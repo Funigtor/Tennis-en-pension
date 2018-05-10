@@ -1,3 +1,5 @@
+package data;
+
 public enum TypeTournoi {
  RolandGarros,
  USOpen,

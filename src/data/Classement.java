@@ -1,3 +1,5 @@
+package data;
+
 import game.Joueur;
 import game.Sexe;
 
