@@ -26,12 +26,6 @@ public class LoadGamePageController {
 
     @FXML
     private void takeURL() throws Exception {
-        try {
-            String test = pathFile.getText();
-            System.out.println(test+" : url envoyer");
-            work.builder((Stage) importButton.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension");
-        }catch (Exception e){
-            System.out.print("ah!");
-        }
+
     }
 }

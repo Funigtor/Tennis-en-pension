@@ -5,6 +5,6 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NewGamePagController">
    <children>
-      <Button fx:id="testJoueur" layoutX="163.0" layoutY="248.0" mnemonicParsing="false" onAction="#testJB" text="Button" />
+      <Button fx:id="testJoueur" layoutX="163.0" layoutY="248.0" mnemonicParsing="false" onAction="#" text="Button" />
    </children>
 </AnchorPane>
