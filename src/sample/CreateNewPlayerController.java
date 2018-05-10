@@ -24,7 +24,7 @@ public class CreateNewPlayerController {
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) menu.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player");
+            work.builder((Stage) next.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player");
         }catch (Exception e){
             System.out.print("ah!");
         }

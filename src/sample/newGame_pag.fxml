@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NewGamePagController">
    <children>
-      <Button fx:id="testJoueur" layoutX="163.0" layoutY="248.0" mnemonicParsing="false" onAction="#" text="Button" />
+      <Button fx:id="oneByOne" layoutX="141.0" layoutY="233.0" mnemonicParsing="false" onAction="#nextPlayer" text="creer un par un" />
+      <Label layoutX="153.0" layoutY="53.0" text="Nouveau Jeu">
+         <font>
+            <Font name="Droid Sans Fallback" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="randCreat" layoutX="154.0" layoutY="174.0" mnemonicParsing="false" onAction="#randomCreatF" text="All Random" />
    </children>
 </AnchorPane>
