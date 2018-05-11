@@ -7,23 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
    <children>
-      <Button fx:id="closeButton" layoutX="171.0" layoutY="324.0" mnemonicParsing="false" onAction="#closeButtonAction" text="quitter" />
-      <Button fx:id="exportListe" layoutX="150.0" layoutY="278.0" mnemonicParsing="false" text="ExportJoueur" />
-      <MenuButton layoutX="167.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="jouer">
+      <Button fx:id="closeButton" layoutX="203.0" layoutY="314.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="195.0" text="quitter" />
+      <Button fx:id="exportListe" layoutX="203.0" layoutY="258.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="195.0" text="ExportJoueur" />
+      <MenuButton layoutX="265.0" layoutY="107.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="jouer">
         <items>
           <MenuItem fx:id="MatchSolo" mnemonicParsing="false" text="Match amical" />
           <MenuItem fx:id="TournoiMatch" mnemonicParsing="false" text="tournoi" />
             <MenuItem fx:id="YearMatchs" mnemonicParsing="false" text="Annee" />
         </items>
       </MenuButton>
-      <Label alignment="CENTER" layoutX="18.0" layoutY="38.0" prefHeight="32.0" prefWidth="385.0" text="TENNIS-EN-PENSION" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="108.0" layoutY="42.0" prefHeight="32.0" prefWidth="385.0" text="TENNIS-EN-PENSION" textAlignment="CENTER">
          <font>
             <Font name="Abyssinica SIL" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="morePlayer" layoutX="147.0" layoutY="233.0" mnemonicParsing="false" onAction="#goToNewPlayer" text="ajouter joueur" />
+      <Button fx:id="morePlayer" layoutX="203.0" layoutY="206.0" mnemonicParsing="false" onAction="#goToNewPlayer" prefHeight="42.0" prefWidth="195.0" text="ajouter joueur" />
    </children>
 </AnchorPane>

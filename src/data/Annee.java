@@ -6,7 +6,7 @@ import game.Sexe;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Annee {
+public class  Annee {
 
   private Sexe sexe;
   private List<Tournoi> tournaments;

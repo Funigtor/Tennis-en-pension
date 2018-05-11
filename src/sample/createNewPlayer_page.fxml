@@ -8,23 +8,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
    <children>
-      <Label layoutX="115.0" layoutY="69.0" prefHeight="48.0" prefWidth="170.0" text="Creer nouveau joeur">
+      <Label layoutX="202.0" layoutY="26.0" prefHeight="48.0" prefWidth="170.0" text="Creer nouveau joeur">
          <font>
             <Font name="DejaVu Serif Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="115.0" layoutY="145.0" />
-      <TextField fx:id="firstname" layoutX="115.0" layoutY="200.0" />
-      <Label layoutX="182.0" layoutY="117.0" text="Nom" />
-      <Label layoutX="172.0" layoutY="178.0" text="Prenom" />
-      <Button fx:id="next" layoutX="286.0" layoutY="307.0" mnemonicParsing="false" onAction="#nextPlayer" text="Suivant" />
-      <Button fx:id="menu" layoutX="286.0" layoutY="346.0" mnemonicParsing="false" onAction="#goToFirst" text="Menu" />
-      <MenuButton layoutX="164.0" layoutY="243.0" mnemonicParsing="false" text="sexe">
+      <TextField fx:id="name" layoutX="201.0" layoutY="152.0" />
+      <TextField fx:id="firstname" layoutX="201.0" layoutY="212.0" />
+      <Label layoutX="271.0" layoutY="105.0" text="Nom" />
+      <Label layoutX="261.0" layoutY="184.0" text="Prenom" />
+      <Button fx:id="next" layoutX="201.0" layoutY="317.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
+      <Button fx:id="menu" layoutX="202.0" layoutY="358.0" mnemonicParsing="false" onAction="#goToFirst" prefHeight="41.0" prefWidth="170.0" text="Menu" />
+      <MenuButton layoutX="233.0" layoutY="255.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="sexe">
         <items>
-          <MenuItem fx:id="sexeM" mnemonicParsing="false" text="Masculin" />
-          <MenuItem fx:id="sexeF" mnemonicParsing="false" text="Feminin" />
+          <MenuItem fx:id="sexeM" mnemonicParsing="false" onAction="#setM" text="Masculin" />
+          <MenuItem fx:id="sexeF" mnemonicParsing="false" onAction="#setF" text="Feminin" />
         </items>
       </MenuButton>
    </children>

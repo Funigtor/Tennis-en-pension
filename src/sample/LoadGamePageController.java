@@ -37,6 +37,10 @@ public class LoadGamePageController {
         FileChooser fileChooser = new FileChooser();
         File toOpen = fileChooser.showOpenDialog(goBack.getScene().getWindow());
         SaverLoader sl = new SaverLoader(toOpen);
-        ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs()));
+        try {
+            ArrayList<Joueur> list = new ArrayList<Joueur>(Arrays.asList(sl.loadJoueurs()));
+        }catch (Exception e){
+
+        }
     }
 }

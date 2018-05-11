@@ -1,7 +1,11 @@
 package sample;
 
+import game.Joueur;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
+import data.*;
+
+import java.util.ArrayList;
 
 public class HomePageController {
     @FXML
@@ -25,7 +29,7 @@ public class HomePageController {
     @FXML
     private void goToNew() throws Exception {   //switch to newgameScene
             try {
-                work.builder((Stage) newPage.getScene().getWindow(), "loadGame_page.fxml", "charger-jeu");
+                work.builder((Stage) newPage.getScene().getWindow(), "loadGame_page.fxml", "charger-une-annee");
             }catch (Exception e){
                 System.out.print("ah!");
             }

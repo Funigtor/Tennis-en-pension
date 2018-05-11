@@ -1,5 +1,6 @@
 package sample;
 
+import game.Joueur;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 

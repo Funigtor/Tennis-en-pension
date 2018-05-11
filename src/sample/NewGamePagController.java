@@ -1,8 +1,14 @@
 package sample;
 import com.sun.xml.internal.bind.v2.TODO;
+import data.SaverLoader;
 import game.*;
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class NewGamePagController {
 
@@ -12,7 +18,24 @@ public class NewGamePagController {
     @FXML
     private javafx.scene.control.Button randCreat;
 
+    @FXML
+    private javafx.scene.control.Button loadList;
+
+    @FXML
+    private javafx.scene.control.Button back;
+
+    @FXML
+    private javafx.scene.control.TextField date;
+
+    @FXML
+    private javafx.scene.control.Button valider;
+
+    @FXML
+    private javafx.scene.control.Label erreur;
+
     private SceneWorker work = new SceneWorker();
+
+    public GlobalController control = new GlobalController();
 
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
@@ -27,15 +50,41 @@ public class NewGamePagController {
     private void randomCreatF() throws Exception{
         try {
             work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension");
-            // TODO creer les joueur ramdom
         }catch (Exception e){
             System.out.print("ah!");
         }
     }
 
+    @FXML
+    private void goBack() throws Exception{
+        try {
+            work.builder((Stage) back.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension");
+        }catch (Exception e){
+            System.out.print("ah!");
+        }
+    }
 
+    @FXML
+    private void loadListe() throws Exception{
+        try {
+            FileChooser fileChooser = new FileChooser();
+            File toOpen = fileChooser.showOpenDialog(loadList.getScene().getWindow());
+            SaverLoader sl = new SaverLoader(toOpen);
+            ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs()));
+            control.setMyList(list);
+        }catch (Exception e){
+            System.out.print("ah!");
+        }
+    }
 
-
-
-
+    @FXML
+    private void setYear() throws Exception{
+        try{
+            control.Annee= Integer.parseInt(date.getText());
+            System.out.println(control.Annee);
+            erreur.setText("année valide");
+        }catch (Exception e){
+            erreur.setText("Mauvaise date");
+        }
+    }
 }
