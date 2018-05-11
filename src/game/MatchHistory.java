@@ -18,6 +18,7 @@ public class MatchHistory {
 
     // On note le vainqueur
     private Joueur vainqueur;
+    private Joueur perdant;
 
     public MatchHistory(Joueur joueurA, Joueur joueurB, Sexe sexe, int numeroDeLaRonde) {
         this.joueurA = joueurA;
@@ -51,5 +52,11 @@ public class MatchHistory {
     protected void setVainqueur(Joueur vainqueur) {
         // Setter de vainqueur
         this.vainqueur = vainqueur;
+        this.perdant = (joueurA == vainqueur) ? joueurB : joueurA;
+    }
+
+    public Joueur getPerdant() {
+        // Getter de perdant
+        return perdant;
     }
 }
