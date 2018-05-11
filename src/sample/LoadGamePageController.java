@@ -1,7 +1,15 @@
 package sample;
 
+import data.SaverLoader;
+import game.Joueur;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class LoadGamePageController {
     @FXML
@@ -26,6 +34,9 @@ public class LoadGamePageController {
 
     @FXML
     private void takeURL() throws Exception {
-
+        FileChooser fileChooser = new FileChooser();
+        File toOpen = fileChooser.showOpenDialog(goBack.getScene().getWindow());
+        SaverLoader sl = new SaverLoader(toOpen);
+        ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs()));
     }
 }
