@@ -25,6 +25,18 @@ public class Joueur {
     this.points.add(0);
   }
 
+  public Joueur (Sexe sexe){
+    Random r = new Random();
+    this.nom = Names.names[r.nextInt(Names.names.length)];
+    this.prenom = (sexe == Sexe.MASCULIN)
+            ? Names.males[r.nextInt(Names.names.length)] : Names.females[r.nextInt(Names.names.length)];
+    this.sexe = sexe;
+    this.puissance = r.nextInt(100);
+    this.enduranceMax = r.nextInt(100);
+    this.points = new ArrayList<>();
+    this.points.add(0);
+  }
+
 
   public Integer getPuissance() {
     // Getter de puissance
