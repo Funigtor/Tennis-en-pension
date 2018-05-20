@@ -26,6 +26,12 @@ public class Classement {
                 else
                     return 0;
         });
+        // On note l'évolution
+        int rang = 0;
+        for (Joueur j : this.classment){
+            j.addRang(this.classment.size() - rang);
+            rang++;
+        }
     }
 
     public Classement(Sexe sexe) {

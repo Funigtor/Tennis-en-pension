@@ -13,6 +13,7 @@ public class Joueur {
   private Integer puissance;
   private Integer enduranceMax;
   private List<Integer> points; // Représente l'historique
+  private List<Integer> rang; // On stocke l'historique du rang
 
   public Joueur (String nom,String prenom, Sexe sexe){
     Random r = new Random();
@@ -23,6 +24,7 @@ public class Joueur {
     this.enduranceMax = r.nextInt(100);
     this.points = new ArrayList<>();
     this.points.add(0);
+    this.rang = new ArrayList<>();
   }
 
   public Joueur (Sexe sexe){
@@ -35,6 +37,7 @@ public class Joueur {
     this.enduranceMax = r.nextInt(100);
     this.points = new ArrayList<>();
     this.points.add(0);
+    this.rang = new ArrayList<>();
   }
 
 
@@ -73,7 +76,17 @@ public class Joueur {
     this.points.add(this.getCurrentPoints() + newPoints);
   }
 
-  public int getCurrentPoints(){
+   public void addRang(int newRang){
+       // Ajoute le nouveau rang
+       this.rang.add(newRang);
+   }
+
+    public List<Integer> getRang() {
+        // Getter de rang
+        return rang;
+    }
+
+    public int getCurrentPoints(){
     return this.points.get(this.points.size() - 1);
   }
 
