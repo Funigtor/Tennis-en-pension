@@ -15,7 +15,7 @@ public class ResultPageController {
     @FXML
     private void goToFirst() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) menuBoutton.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension");
+            work.builder((Stage) menuBoutton.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }

@@ -35,7 +35,7 @@ public class MenuforPlayController {
     @FXML
     private void goToNewPlayer() throws Exception {   //switch to newgameScene
         try {
-            work.builder((Stage) morePlayer.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player");
+            work.builder((Stage) morePlayer.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }

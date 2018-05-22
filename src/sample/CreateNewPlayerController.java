@@ -37,7 +37,7 @@ public class CreateNewPlayerController {
     @FXML
     private void goToFirst() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) menu.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension");
+            work.builder((Stage) menu.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -46,7 +46,7 @@ public class CreateNewPlayerController {
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) next.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player");
+            work.builder((Stage) next.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
             Joueur newPlayer = new Joueur(name.getText(),firstname.getText(),type);
             control.MyList.add(newPlayer);
         }catch (Exception e){

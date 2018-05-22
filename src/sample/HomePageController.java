@@ -29,16 +29,16 @@ public class HomePageController {
     @FXML
     private void goToNew() throws Exception {   //switch to newgameScene
             try {
-                work.builder((Stage) newPage.getScene().getWindow(), "loadGame_page.fxml", "charger-une-annee");
+                work.builder((Stage) newPage.getScene().getWindow(), "loadGame_page.fxml", "Load-Game", 400,400);
             }catch (Exception e){
                 System.out.print("ah!");
             }
     }
 
     @FXML
-    private void goToLoad() throws Exception {   //switch to newgameScene
+    private void goToLoad() throws Exception {   //switch to loadgameScene
         try {
-            work.builder((Stage) loadPage.getScene().getWindow(), "newGame_pag.fxml", "nouveau-jeu");
+            work.builder((Stage) loadPage.getScene().getWindow(), "newGame_pag.fxml", "nouveau-jeu",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }

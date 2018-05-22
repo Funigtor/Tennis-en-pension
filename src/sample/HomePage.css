@@ -1,0 +1,13 @@
+.background{
+    -fx-background-image: url("../../Image/couleur_balle_tennis_2.jpg");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 400 400 ;
+    -fx-background-position: center center;
+}
+
+.label {
+    -fx-font-size: 15pt;
+    -fx-font-family: "DejaVu Math TeX Gyre";
+    -fx-text-fill: Black;
+    -fx-opacity: 0.6;
+}

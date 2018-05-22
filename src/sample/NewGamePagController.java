@@ -40,7 +40,7 @@ public class NewGamePagController {
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) oneByOne.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player");
+            work.builder((Stage) oneByOne.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -49,7 +49,7 @@ public class NewGamePagController {
     @FXML
     private void randomCreatF() throws Exception{
         try {
-            work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension");
+            work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -58,7 +58,7 @@ public class NewGamePagController {
     @FXML
     private void goBack() throws Exception{
         try {
-            work.builder((Stage) back.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension");
+            work.builder((Stage) back.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }

@@ -26,7 +26,7 @@ public class LoadGamePageController {
     @FXML
     private void goToFirst() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) goBack.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension");
+            work.builder((Stage) goBack.getScene().getWindow(), "home_page.fxml", "Tennis-en-pension",400,400);
         }catch (Exception e){
             System.out.print("ah!");
         }
