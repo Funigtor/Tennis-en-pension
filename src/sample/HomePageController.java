@@ -2,9 +2,11 @@ package sample;
 
 import game.Joueur;
 import javafx.fxml.FXML;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import data.*;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class HomePageController {
@@ -29,7 +31,7 @@ public class HomePageController {
     @FXML
     private void goToNew() throws Exception {   //switch to newgameScene
             try {
-                work.builder((Stage) newPage.getScene().getWindow(), "loadGame_page.fxml", "Load-Game", 400,400);
+                work.builder((Stage) newPage.getScene().getWindow(), "newGame_pag.fxml", "New-game", 400,400);
             }catch (Exception e){
                 System.out.print("ah!");
             }
@@ -37,10 +39,19 @@ public class HomePageController {
 
     @FXML
     private void goToLoad() throws Exception {   //switch to loadgameScene
+        FileChooser fileChooser = new FileChooser();
+        File toOpen = fileChooser.showOpenDialog(loadPage.getScene().getWindow());
+        SaverLoader sl = new SaverLoader(toOpen);
         try {
-            work.builder((Stage) loadPage.getScene().getWindow(), "newGame_pag.fxml", "nouveau-jeu",400,400);
+            GlobalController.MyAnnee.add(sl.loadAnnee());
+            // On change de scène si on a bien un fichier correct
+            try {
+                work.builder((Stage) loadPage.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
+            }catch (Exception e){
+                System.out.print("ah!");
+            }
         }catch (Exception e){
-            System.out.print("ah!");
+
         }
     }
 
