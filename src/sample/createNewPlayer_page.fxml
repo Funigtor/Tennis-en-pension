@@ -2,13 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
    <children>
       <Label layoutX="202.0" layoutY="26.0" prefHeight="48.0" prefWidth="170.0" text="Creer nouveau joeur">
          <font>
@@ -19,13 +17,9 @@
       <TextField fx:id="firstname" layoutX="201.0" layoutY="212.0" />
       <Label layoutX="271.0" layoutY="105.0" text="Nom" />
       <Label layoutX="261.0" layoutY="184.0" text="Prenom" />
+      <Label layoutX="261.0" layoutY="254.0" text="Sexe" />
+      <Label layoutX="261.0" layoutY="282.0" text="Helicoptère De Combat" fx:id="sex" />
       <Button fx:id="next" layoutX="201.0" layoutY="317.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
       <Button fx:id="menu" layoutX="202.0" layoutY="358.0" mnemonicParsing="false" onAction="#goToFirst" prefHeight="41.0" prefWidth="170.0" text="Menu" />
-      <MenuButton layoutX="233.0" layoutY="255.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="107.0" text="sexe">
-        <items>
-          <MenuItem fx:id="sexeM" mnemonicParsing="false" onAction="#setM" text="Masculin" />
-          <MenuItem fx:id="sexeF" mnemonicParsing="false" onAction="#setF" text="Feminin" />
-        </items>
-      </MenuButton>
    </children>
 </AnchorPane>

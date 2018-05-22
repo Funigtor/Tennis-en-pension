@@ -33,6 +33,9 @@ public class NewGamePagController {
     @FXML
     private javafx.scene.control.Label erreur;
 
+    @FXML
+    private javafx.scene.control.RadioButton masculin;
+
     private SceneWorker work = new SceneWorker();
 
     public GlobalController control = new GlobalController();
@@ -40,6 +43,7 @@ public class NewGamePagController {
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
         try {
+            GlobalController.sexe = (masculin.isSelected()) ? Sexe.MASCULIN : Sexe.FEMININ;
             work.builder((Stage) oneByOne.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
         }catch (Exception e){
             System.out.print("ah!");
@@ -72,7 +76,9 @@ public class NewGamePagController {
             FileChooser fileChooser = new FileChooser();
             File toOpen = fileChooser.showOpenDialog(loadList.getScene().getWindow());
             SaverLoader sl = new SaverLoader(toOpen);
-            ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs()));
+            // On regarde le sexe choisi
+            Sexe selectedSex = (masculin.isSelected()) ? Sexe.MASCULIN : Sexe.FEMININ;
+            ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs(selectedSex)));
             control.setMyList(list);
         }catch (Exception e){
             System.out.print("ah!");

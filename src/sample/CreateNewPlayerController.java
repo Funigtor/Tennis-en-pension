@@ -13,12 +13,6 @@ public class CreateNewPlayerController {
     private javafx.scene.control.Button menu;
 
     @FXML
-    private javafx.scene.control.MenuItem sexeM;
-
-    @FXML
-    private javafx.scene.control.MenuItem sexeF;
-
-    @FXML
     private javafx.scene.control.TextField name;
 
     @FXML
@@ -27,12 +21,15 @@ public class CreateNewPlayerController {
     @FXML
     private javafx.scene.control.Button affiche;
 
+    @FXML
+    private javafx.scene.control.Label sex;
+
 
     private SceneWorker work = new SceneWorker();
 
     public GlobalController control = new GlobalController();
 
-    private Sexe type = Sexe.MASCULIN;
+    private Sexe type = GlobalController.sexe;
 
     @FXML
     private void goToFirst() throws Exception { // function goback first scene
@@ -54,23 +51,6 @@ public class CreateNewPlayerController {
         }
     }
 
-    @FXML
-    private void setM() throws Exception{
-        try{
-            this.type = Sexe.MASCULIN;
-        }catch (Exception e){
-            System.out.print("ah!");
-        }
-    }
-
-    @FXML
-    private void setF() throws Exception{
-        try{
-            this.type = Sexe.FEMININ;
-        }catch (Exception e){
-            System.out.print("ah!");
-        }
-    }
 
     @FXML
     private void affichage() throws Exception{
@@ -81,6 +61,14 @@ public class CreateNewPlayerController {
         }catch (Exception e){
             System.out.print("ah!");
         }
+    }
+
+    @FXML
+    protected void initialize(){
+        if (type == Sexe.MASCULIN)
+            sex.setText("Masculin");
+        else
+            sex.setText("Féminin");
     }
 
 }
