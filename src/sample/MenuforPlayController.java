@@ -112,4 +112,13 @@ public class MenuforPlayController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void testNewWind() throws Exception {   //switch to newgameScene
+        try {
+            work.builder2( "historique_page.fxml", "historique des tournois",400,400);
+        }catch (Exception e){
+            System.out.print("ah!");
+        }
+    }
 }

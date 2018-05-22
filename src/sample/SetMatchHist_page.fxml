@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SetMatchHistController">
+   <children>
+      <Label layoutX="138.0" layoutY="40.0" prefHeight="27.0" prefWidth="124.0" text="JOUEUR 1" />
+      <Label layoutX="138.0" layoutY="107.0" prefHeight="27.0" prefWidth="124.0" text="JOUEUR 2" />
+      <Label layoutX="138.0" layoutY="73.0" prefHeight="27.0" prefWidth="124.0" text="Vs" />
+      <TabPane layoutX="55.0" layoutY="159.0" prefHeight="200.0" prefWidth="293.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Set 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="167.0" prefWidth="293.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="jeu 1">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Label layoutX="118.0" layoutY="14.0" text="Score j1:" />
+                                          <Label layoutX="118.0" layoutY="59.0" text="Score j2:" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

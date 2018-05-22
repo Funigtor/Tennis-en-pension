@@ -12,4 +12,12 @@ public class SceneWorker {
         newStage.setScene(new Scene(root, width, height));
         newStage.show();
     }
+
+    public void builder2(String file, String name, int width, int height) throws Exception{
+        Stage newStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource(file));
+        newStage.setTitle(name);
+        newStage.setScene(new Scene(root, width, height));
+        newStage.show();
+    }
 }
