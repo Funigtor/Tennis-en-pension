@@ -39,13 +39,28 @@ public class SaverLoader {
         return null; // Si échec.
     }
 
-    public Joueur[] loadJoueurs() {
-        // On va lire un JSON
+    public Joueur[] loadJoueurs(Sexe sexe) {
+        // On va lire un fichier formaté en nom prenom
+        BufferedReader br = null;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String json = br.readLine(); // On a généré que des JSON d'une ligne. L'utilisateur ne doit pas y toucher.
-            // On regénère une année avec le fichier et on renvoie
-            return gson.fromJson(json,Joueur[].class);
+            br = new BufferedReader(new FileReader(file));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        String line;
+        ArrayList<Joueur> futursJoueurs = new ArrayList<>();
+        try {
+            while ((line = br.readLine()) != null) {
+            // process the line.
+                String[] tab = line.split(" ");
+                if (tab.length < 2)
+                    throw new Exception();
+                String futurNom = tab[0];
+                String futurPrenom = tab[1];
+                futursJoueurs.add(new Joueur(futurNom,futurPrenom,sexe));
+            }
+            br.close();
+            return (Joueur[]) futursJoueurs.toArray();
         } catch (Exception e){
             e.printStackTrace();
         }
