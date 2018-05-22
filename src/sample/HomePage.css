@@ -1,5 +1,5 @@
 .background{
-    -fx-background-image: url("../../Image/couleur_balle_tennis_2.jpg");
+    -fx-background-image: url("../Image/couleur_balle_tennis_2.jpg");
     -fx-background-repeat: stretch;   
     -fx-background-size: 400 400 ;
     -fx-background-position: center center;
