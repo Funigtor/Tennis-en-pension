@@ -10,6 +10,9 @@ public class Joueur {
   private String prenom;
   private Sexe sexe;
 
+  private int classement;
+  private int score;
+
   private Integer puissance;
   private Integer enduranceMax;
   private List<Integer> points; // Représente l'historique
@@ -23,15 +26,18 @@ public class Joueur {
     this.puissance = r.nextInt(100);
     this.enduranceMax = r.nextInt(100);
     this.points = new ArrayList<>();
-    this.points.add(0);
+    this.points.add(1);
     this.rang = new ArrayList<>();
+    this.rang.add(0);
+    this.score=getCurrentPoints();
+    this.classement=getCurrentRang();
   }
 
   public Joueur (Sexe sexe){
     Random r = new Random();
     this.nom = Names.names[r.nextInt(Names.names.length)];
     this.prenom = (sexe == Sexe.MASCULIN)
-            ? Names.males[r.nextInt(Names.names.length)] : Names.females[r.nextInt(Names.names.length)];
+            ? Names.males[r.nextInt(Names.males.length)] : Names.females[r.nextInt(Names.females.length)];
     this.sexe = sexe;
     this.puissance = r.nextInt(100);
     this.enduranceMax = r.nextInt(100);
@@ -40,6 +46,21 @@ public class Joueur {
     this.rang = new ArrayList<>();
   }
 
+  public int getClassement() {
+    return classement;
+  }
+
+  public void setClassement(int classement) {
+    this.classement = classement;
+  }
+
+  public int getScore() {
+    return score;
+  }
+
+  public void setScore(int score) {
+    this.score = score;
+  }
 
   public Integer getPuissance() {
     // Getter de puissance
@@ -74,11 +95,13 @@ public class Joueur {
   public void addPoints(int newPoints){
       // Ajoute des points au compteur de points
     this.points.add(this.getCurrentPoints() + newPoints);
+    this.score+=newPoints;
   }
 
    public void addRang(int newRang){
        // Ajoute le nouveau rang
        this.rang.add(newRang);
+       this.classement=newRang;
    }
 
     public List<Integer> getRang() {
@@ -88,6 +111,10 @@ public class Joueur {
 
     public int getCurrentPoints(){
     return this.points.get(this.points.size() - 1);
+  }
+
+  public int getCurrentRang(){
+    return this.rang.get(this.rang.size() - 1);
   }
 
   public String getNom() {

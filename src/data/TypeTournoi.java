@@ -6,6 +6,6 @@ public enum TypeTournoi {
  Wimbledon,
  IndianWells,
  Miami,
- OpenAustralie
+ OpenAustralie,
 }
 

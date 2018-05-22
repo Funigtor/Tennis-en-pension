@@ -1,5 +1,5 @@
 package sample;
-import com.sun.xml.internal.bind.v2.TODO;
+
 import data.SaverLoader;
 import game.*;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class NewGamePagController {
     private javafx.scene.control.TextField date;
 
     @FXML
-    private javafx.scene.control.Button valider;
+    private javafx.scene.control.Button tonext_willbeDell;
 
     @FXML
     private javafx.scene.control.Label erreur;
@@ -49,6 +49,7 @@ public class NewGamePagController {
     @FXML
     private void randomCreatF() throws Exception{
         try {
+            //TODO
             work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
         }catch (Exception e){
             System.out.print("ah!");
@@ -67,6 +68,7 @@ public class NewGamePagController {
     @FXML
     private void loadListe() throws Exception{
         try {
+            //TODO
             FileChooser fileChooser = new FileChooser();
             File toOpen = fileChooser.showOpenDialog(loadList.getScene().getWindow());
             SaverLoader sl = new SaverLoader(toOpen);

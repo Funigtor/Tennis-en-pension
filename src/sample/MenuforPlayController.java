@@ -1,8 +1,13 @@
 package sample;
 
 import game.Joueur;
+import game.Match;
+import game.Sexe;
 import javafx.fxml.FXML;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class MenuforPlayController {
     @FXML
@@ -11,19 +16,54 @@ public class MenuforPlayController {
     @FXML
     private javafx.scene.control.Button morePlayer;
 
+    /*
+    @FXML
+    private javafx.scene.control.Button RolandGarros;
+
+    @FXML
+    private javafx.scene.control.Button USOpen;
+
+    @FXML
+    private javafx.scene.control.Button Wimbledon;
+
+    @FXML
+    private javafx.scene.control.Button IndianWells;
+
+    @FXML
+    private javafx.scene.control.Button Miami;
+
+    @FXML
+    private javafx.scene.control.Button OpenAustralie;
+
+    @FXML
+    private javafx.scene.control.Button YearMatchs;
+
+    @FXML
+    private javafx.scene.control.Button MatchSolo;
+    */
+
     @FXML
     private javafx.scene.control.Button exportListe;
 
     @FXML
-    private javafx.scene.control.MenuItem MatchSolo;
+    public javafx.scene.control.TableView tableau;
 
     @FXML
-    private javafx.scene.control.MenuItem TournoiMatch;
+    public javafx.scene.control.TableColumn nom;
 
     @FXML
-    private javafx.scene.control.MenuItem YearMatchs;
+    public javafx.scene.control.TableColumn prenom;
+
+    @FXML
+    public javafx.scene.control.TableColumn classement;
+
+    @FXML
+    public javafx.scene.control.TableColumn score;
 
     private SceneWorker work = new SceneWorker();
+
+    //temporaire
+    private ArrayList<Joueur> tebJ= new ArrayList<>();
 
     @FXML
     private void closeButtonAction(){   // Function closing the  stage
@@ -38,6 +78,38 @@ public class MenuforPlayController {
             work.builder((Stage) morePlayer.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
         }catch (Exception e){
             System.out.print("ah!");
+        }
+    }
+
+
+    //FONCTIONs TEMPORAIRES
+    @FXML
+    private void testTabView() throws Exception{
+        try {
+            Joueur test = new Joueur(Sexe.MASCULIN);
+            nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+            classement.setCellValueFactory(new PropertyValueFactory<>("classement"));
+            score.setCellValueFactory(new PropertyValueFactory<>("score"));
+            tableau.getItems().add(test);
+            tebJ.add(test);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void tessupdate() throws Exception{
+        try {
+            for(int i = 0; i<tebJ.size()-1;i++){
+                Match joujou = new Match(tebJ.get(i),tebJ.get(i+1));
+                joujou.jouerMatch();
+                tableau.getItems().clear();
+                tableau.getItems().addAll(tebJ);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
