@@ -37,7 +37,7 @@ public class Match {
     int setsB = 0 ;
     int nbSetMax = 2;
     if (inThreeSets) nbSetMax++;
-    while ((setsA < nbSetMax || setsB < nbSetMax)){
+    while ((setsA < nbSetMax && setsB < nbSetMax)){
         // En cas d'abandon on aura un vainqueur, il faut sortir.
         if (vainqueur != null) break;
         // On ajoute le nouveau set
@@ -56,15 +56,17 @@ public class Match {
       if (vainqueur == null) {
           this.vainqueur = (setsA > setsB) ? joueurA : joueurB;
       }
-      Joueur perdant = (setsA > setsB) ? joueurB : joueurA;
+      Joueur perdant = (this.vainqueur == joueurA) ? joueurB : joueurA;
     // On termine de remplir l'historique avec les informations de fin de match
     nbJeuxEcart = Math.abs(nbJeuxA-nbJeuxB);
     this.history.setNbJeuxEcart(nbJeuxEcart);
     this.history.setVainqueur(this.vainqueur);
     // On met à jour le score des joueurs
-      int nbPointsGagnes = numeroDeLaRonde/7 * perdant.getCurrentPoints()/vainqueur.getCurrentPoints() * nbJeuxEcart;
-      vainqueur.addPoints(nbPointsGagnes);
-      perdant.addPoints(0); // Le perdant doit avancer aussi dans sa progression, même si elle est stable.
+    int pointsVainqueur = vainqueur.getCurrentPoints();
+    int pointsPerdant = perdant.getCurrentPoints();
+    int nbPointsGagnes = (int) Math.ceil(numeroDeLaRonde/7.0 * pointsPerdant/pointsVainqueur * nbJeuxEcart);
+    vainqueur.addPoints(nbPointsGagnes);
+    perdant.addPoints(0); // Le perdant doit avancer aussi dans sa progression, même si elle est stable.
     return this.history;
   }
 
@@ -100,8 +102,8 @@ public class Match {
       // On tire les valeurs des joueurs
       float valA = joueurA.getPuissance()/(100-enduA)*r.nextInt(100);
       float valB = joueurB.getPuissance()/(100-enduB)*r.nextInt(100);
-      enduA -= joueurA.getPuissance()/100;
-      enduB -= joueurB.getPuissance()/100;
+      enduA -= joueurA.getPuissance()/100.0;
+      enduB -= joueurB.getPuissance()/100.0;
       // On détermine si un joueur veut abandonner le match
       if (enduA <= 0){
         this.abandon('a');

@@ -42,7 +42,7 @@ public class Joueur {
     this.puissance = r.nextInt(100);
     this.enduranceMax = r.nextInt(100);
     this.points = new ArrayList<>();
-    this.points.add(0);
+    this.points.add(1);
     this.rang = new ArrayList<>();
   }
 
