@@ -1,9 +1,12 @@
 package sample;
 
+import data.Annee;
 import game.Joueur;
 import game.Sexe;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
 
 public class CreateNewPlayerController {
     @FXML
@@ -27,13 +30,14 @@ public class CreateNewPlayerController {
 
     private SceneWorker work = new SceneWorker();
 
-    public GlobalController control = new GlobalController();
-
     private Sexe type = GlobalController.sexe;
+
+    private ArrayList<Joueur> myList = new ArrayList<>();
 
     @FXML
     private void goToFirst() throws Exception { // function goback first scene
         try {
+            GlobalController.setCurrentYear(new Annee(myList,type,GlobalController.nbAnnee));
             work.builder((Stage) menu.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",400,400);
         }catch (Exception e){
             System.out.print("ah!");
@@ -45,7 +49,7 @@ public class CreateNewPlayerController {
         try {
             work.builder((Stage) next.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
             Joueur newPlayer = new Joueur(name.getText(),firstname.getText(),type);
-            control.MyList.add(newPlayer);
+            this.myList.add(newPlayer);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -55,7 +59,7 @@ public class CreateNewPlayerController {
     @FXML
     private void affichage() throws Exception{
         try {
-            for (Joueur m: GlobalController.MyList) {
+            for (Joueur m: myList) {
                 System.out.println(m.getNom()+" - "+m.getPrenom()+" - "+ m.getSexe());
             }
         }catch (Exception e){

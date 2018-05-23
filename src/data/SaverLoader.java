@@ -39,7 +39,7 @@ public class SaverLoader {
         return null; // Si échec.
     }
 
-    public Joueur[] loadJoueurs(Sexe sexe) {
+    public ArrayList<Joueur> loadJoueurs(Sexe sexe) {
         // On va lire un fichier formaté en nom prenom
         BufferedReader br = null;
         try {
@@ -60,7 +60,7 @@ public class SaverLoader {
                 futursJoueurs.add(new Joueur(futurNom,futurPrenom,sexe));
             }
             br.close();
-            return (Joueur[]) futursJoueurs.toArray();
+            return futursJoueurs;
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -8,6 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MenuforPlayController {
     @FXML
@@ -62,10 +63,12 @@ public class MenuforPlayController {
 
     private SceneWorker work = new SceneWorker();
 
-    public GlobalController donnee = new GlobalController();
-
     //temporaire
     private ArrayList<Joueur> tebJ= new ArrayList<>();
+
+    private List<Joueur> participants;
+
+    private boolean canStartTournaments;
 
     @FXML
     private void closeButtonAction(){   // Function closing the  stage
@@ -85,20 +88,22 @@ public class MenuforPlayController {
 
     @FXML
     public void initialize() {
+        this.participants = GlobalController.getCurrentYear().getParticipants();
+        canStartTournaments = (this.participants.size() == 128) ? true : false;
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         classement.setCellValueFactory(new PropertyValueFactory<>("classement"));
         score.setCellValueFactory(new PropertyValueFactory<>("score"));
         tableau.getItems().clear();
-        tableau.getItems().addAll(donnee.getMyList());
+        tableau.getItems().addAll(GlobalController.getCurrentYear().getParticipants());
     }
 
     @FXML
     private void jouerMatch(){          //Lance un match entre deux joueurs aleatoires
-        Match jouons = new Match(donnee.getMyList().get((int)(Math.random() * donnee.getMyList().size())),
-                donnee.getMyList().get((int)(Math.random() * donnee.getMyList().size())));
+        Match jouons = new Match(participants.get((int)(Math.random() * participants.size())),
+                participants.get((int)(Math.random() * participants.size())));
         tableau.getItems().clear();
-        tableau.getItems().addAll(donnee.getMyList());
+        tableau.getItems().addAll(participants);
     }
 
 
