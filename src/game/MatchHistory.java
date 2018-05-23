@@ -72,6 +72,11 @@ public class MatchHistory {
         return joueurB;
     }
 
+    public String getNom() {
+        // Getter de nom
+        return nom;
+    }
+
     @Override
     public String toString(){
         return joueurA.getPrenom() + " " + joueurA.getNom() + " VS " + joueurB.getPrenom() + " " + joueurB.getNom();

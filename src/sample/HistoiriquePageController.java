@@ -1,6 +1,6 @@
 package sample;
 
-import data.*;
+import data.Tournoi;
 import game.MatchHistory;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,16 +29,16 @@ public class HistoiriquePageController {
     private SceneWorker work = new SceneWorker();
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         tableTour.setCellValueFactory(new PropertyValueFactory<>("type"));
         matchs.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        for (Tournoi m: GlobalController.currentYear.getTournaments()) {
+        for (Tournoi m : GlobalController.currentYear.getTournaments()) {
             tournois.getItems().add(m);
         }
     }
 
     @FXML
-    private void afficheMatchs() throws Exception{
+    private void afficheMatchs() throws Exception {
         GlobalController.tournoiAVoir = null;
         for (int i = 0; i < GlobalController.currentYear.getTournaments().size(); i++)
             if (tournois.getFocusModel().isFocused(i))
@@ -47,20 +47,21 @@ public class HistoiriquePageController {
             try {
                 matches = GlobalController.tournoiAVoir.getMatches();
                 matchListe.getItems().addAll(matches);
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
     }
 
     @FXML
-    private void afficheHistory(){
+    private void afficheHistory() {
         GlobalController.matchAVoir = null;
         for (int i = 0; i < GlobalController.currentYear.getTournaments().size(); i++)
             if (tournois.getFocusModel().isFocused(i))
                 GlobalController.matchAVoir = matches.get(i);
-        if (GlobalController.matchAVoir != null){
+        if (GlobalController.matchAVoir != null) {
             try {
-                work.builder2("SetMatchHist_page.fxml","Detail du match", 400,400);
+                work.builder((Stage) matchListe.getScene().getWindow(),
+                        "SetMatchHist_page.fxml", "Detail du match", 400, 400);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -68,7 +69,7 @@ public class HistoiriquePageController {
     }
 
     @FXML
-    private void closeButtonAction(){   // Function closing the  stage
+    private void closeButtonAction() {   // Function closing the  stage
         // get a handle to the stage
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
