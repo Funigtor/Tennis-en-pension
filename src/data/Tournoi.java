@@ -63,21 +63,21 @@ public class Tournoi {
   public void jouerTournoi(){
     // On vérifie qu'on est dans un cas où le tournoi se joue en trois set
     boolean inThreeSets = sexe == Sexe.MASCULIN && type != TypeTournoi.IndianWells && type != TypeTournoi.Miami;
-    Joueur[] joueursRestants = (Joueur[])this.participants.toArray();
+    List<Joueur> joueursRestants = this.participants;
     for (int ronde = 1; ronde <= 7; ronde++){
       if (ronde == 6) continue; // On jouera la troisième place plus tard
       List<Joueur> vainqueurs = new ArrayList<>();
       // On va lancer tous les matchs du tournoi
       // Génération
       List<Match> listMatches = new ArrayList<>();
-      for (int i  = 0; i < joueursRestants.length; i += 2)
-          listMatches.add(new Match(joueursRestants[i],joueursRestants[i+1],ronde,inThreeSets));
+      for (int i  = 0; i < joueursRestants.size(); i += 2)
+          listMatches.add(new Match(joueursRestants.get(i),joueursRestants.get(i+1),ronde,inThreeSets));
       // Sauvegarde des matches
       for (Match j : listMatches) {
         this.matches.add(j.jouerMatch());
         vainqueurs.add(j.getVainqueur());
       }
-      joueursRestants = (Joueur[])vainqueurs.toArray();
+      joueursRestants = vainqueurs;
     }
     // On organise le match de la troisième place
     // size() - 2 et -3 comme le -1 est la finale on cherche les perdants des demi-finales.

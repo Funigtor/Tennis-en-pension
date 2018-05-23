@@ -33,7 +33,7 @@ public class PlayerPageController {
         endurance.setText("Endurance : " + player.getEnduranceMax());
         XYChart.Series<String,Number> series = new XYChart.Series<>();;
         for (int i = 0;  i < player.getPoints().size(); i++){
-            series.getData().add(new XYChart.Data<>("",player.getPoints().get(i)));
+            series.getData().add(new XYChart.Data<>(new Integer(i).toString(),player.getPoints().get(i)));
         }
         tabPoints.getData().add(series);
         if (player.getCurrentRang() == 1)
@@ -41,7 +41,7 @@ public class PlayerPageController {
         XYChart.Series<String,Number> ranks = new XYChart.Series<>();
         // On refait la même chose pour les rangs
         for (int i = 0;  i < player.getRang().size(); i++){
-            ranks.getData().add(new XYChart.Data<>("",player.getRang().get(i)));
+            ranks.getData().add(new XYChart.Data<>(new Integer(i).toString(),player.getRang().get(i)));
         }
         tabRangs.getData().add(ranks);
     }
