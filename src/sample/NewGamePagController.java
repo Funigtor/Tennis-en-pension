@@ -29,9 +29,6 @@ public class NewGamePagController {
     private javafx.scene.control.TextField date;
 
     @FXML
-    private javafx.scene.control.Button tonext_willbeDell;
-
-    @FXML
     private javafx.scene.control.Label erreur;
 
     @FXML
@@ -59,9 +56,9 @@ public class NewGamePagController {
             for (int i = 0;i < 128; i++)
                 randPlayers.add(new Joueur(selectedSex));
             GlobalController.setCurrentYear(new Annee(randPlayers,selectedSex,nbAnnee));
-            work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
+            work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Menu",800,500);
         }catch (Exception e){
-            System.out.print("ah!");
+            e.printStackTrace();
         }
     }
 

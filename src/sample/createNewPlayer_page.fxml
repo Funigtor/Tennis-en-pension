@@ -15,11 +15,11 @@
       </Label>
       <TextField fx:id="name" layoutX="117.0" layoutY="122.0" />
       <TextField fx:id="firstname" layoutX="117.0" layoutY="187.0" prefHeight="26.0" prefWidth="171.0" />
-      <Label layoutX="186.0" layoutY="98.0" text="Nom" />
-      <Label layoutX="177.0" layoutY="159.0" text="Prenom" />
-      <Label layoutX="187.0" layoutY="230.0" text="Sexe" />
-      <Label fx:id="sex" layoutX="131.0" layoutY="253.0" text="Helicoptère De Combat" />
-      <Button fx:id="next" layoutX="46.0" layoutY="297.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
+      <Label id="texte" layoutX="186.0" layoutY="98.0" text="Nom" />
+      <Label id="texte" layoutX="177.0" layoutY="159.0" text="Prenom" />
+      <Label id="texte" layoutX="187.0" layoutY="230.0" text="Sexe" />
+      <Label id="texte" fx:id="sex" layoutX="131.0" layoutY="253.0" text="Helicoptère De Combat" />
+      <Button fx:id="next" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
       <Button fx:id="menu" layoutX="118.0" layoutY="339.0" mnemonicParsing="false" onAction="#goToFirst" prefHeight="41.0" prefWidth="170.0" text="Menu" />
       <Label fx:id="nbJoueurs" layoutX="238.0" layoutY="310.0" text="0 / 128 joueurs" />
    </children>

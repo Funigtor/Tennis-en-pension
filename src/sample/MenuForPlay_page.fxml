@@ -7,13 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
    <children>
-      <SplitPane dividerPositions="0.12301587301587301, 0.8948412698412699" layoutX="-6.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="800.0">
+      <SplitPane dividerPositions="0.11706349206349206, 0.8849206349206349" layoutX="-6.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="800.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane id="title" minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="798.0" styleClass="background" stylesheets="@style.css">
                <children>
-                  <Label layoutX="381.0" layoutY="21.0" text="Annee X" />
+                  <Label id="menutitle" fx:id="titre" layoutX="348.0" layoutY="14.0" text="Annee X" />
                </children>
             </AnchorPane>
             <SplitPane dividerPositions="0.6779448621553885" prefHeight="383.0" prefWidth="798.0">
@@ -22,7 +22,7 @@
                      <children>
                         <TableView fx:id="tableau" prefHeight="384.0" prefWidth="539.0">
                           <columns>
-                            <TableColumn fx:id="nom" prefWidth="171.00003051757812" text="Nom" />
+                            <TableColumn id="tableau" fx:id="nom" prefWidth="171.00003051757812" text="Nom" />
                               <TableColumn fx:id="prenom" prefWidth="162.0" text="Prenom" />
                             <TableColumn fx:id="classement" prefWidth="134.0" text="Classement" />
                               <TableColumn fx:id="score" minWidth="0.0" prefWidth="70.0" text="Score" />
@@ -30,24 +30,24 @@
                         </TableView>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
                      <children>
-                        <Button fx:id="MatchSolo" layoutX="47.0" layoutY="14.0" mnemonicParsing="false" onAction="#testNewWind" prefHeight="42.0" prefWidth="160.0" text="Match Amical" />
+                        <Button fx:id="MatchSolo" layoutX="47.0" layoutY="14.0" mnemonicParsing="false" onAction="#jouerMatch" prefHeight="42.0" prefWidth="160.0" text="Match Amical" />
                         <Button fx:id="RolandGarros" layoutX="47.0" layoutY="67.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="RolandGarros" />
                         <Button fx:id="USOpen" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="USOpen" />
                         <Button fx:id="Wimbledon" layoutX="47.0" layoutY="151.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Wimbledon" />
-                        <Button fx:id="IndianWells" layoutX="47.0" layoutY="191.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="IndianWells" />
-                        <Button fx:id="Miami" layoutX="47.0" layoutY="233.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Miami" />
-                        <Button fx:id="OpenAustralie" layoutX="47.0" layoutY="275.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="OpenAustralie" />
-                        <Button fx:id="YearMatchs" layoutX="47.0" layoutY="325.0" mnemonicParsing="false" onAction="#tessupdate" prefHeight="42.0" prefWidth="160.0" text="Toute l'annee" />
+                        <Button fx:id="IndianWells" layoutX="47.0" layoutY="193.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="IndianWells" />
+                        <Button fx:id="Miami" layoutX="47.0" layoutY="235.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Miami" />
+                        <Button fx:id="OpenAustralie" layoutX="47.0" layoutY="277.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="OpenAustralie" />
+                        <Button fx:id="YearMatchs" layoutX="47.0" layoutY="325.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Toute l'annee" />
                      </children>
                   </AnchorPane>
               </items>
             </SplitPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="593.0">
+          <AnchorPane id="title" minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="593.0" styleClass="background">
                <children>
-                  <Button fx:id="exportListe" layoutX="159.0" layoutY="4.0" mnemonicParsing="false" onAction="#testTabView" prefHeight="42.0" prefWidth="160.0" text="sauvegarder" />
-                  <Button fx:id="morePlayer" layoutX="319.0" layoutY="4.0" mnemonicParsing="false" onAction="#goToNewPlayer" prefHeight="42.0" prefWidth="160.0" text="ajouter joueur" />
+                  <Button fx:id="exportListe" layoutX="159.0" layoutY="4.0" mnemonicParsing="false" onAction="#sauvegarder" prefHeight="42.0" prefWidth="160.0" text="sauvegarder" />
+                  <Button fx:id="morePlayer" layoutX="319.0" layoutY="4.0" mnemonicParsing="false" onAction="#testNewWind" prefHeight="42.0" prefWidth="160.0" text="historique" />
                   <Button fx:id="closeButton" layoutX="479.0" layoutY="4.0" mnemonicParsing="false" onAction="#closeButtonAction" prefHeight="42.0" prefWidth="160.0" text="quitter" />
                </children>
             </AnchorPane>

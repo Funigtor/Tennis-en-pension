@@ -29,7 +29,7 @@ public class Joueur {
     this.points.add(1);
     this.rang = new ArrayList<>();
     this.rang.add(0);
-    this.score=getCurrentPoints();
+    this.score=1;
     this.classement=getCurrentRang();
   }
 
@@ -113,31 +113,31 @@ public class Joueur {
     return this.points.get(this.points.size() - 1);
   }
 
-  public int getCurrentRang(){
+    public int getCurrentRang(){
     return this.rang.get(this.rang.size() - 1);
   }
 
-  public String getNom() {
+    public String getNom() {
     return nom;
   }
 
-  public void setNom(String nom) {
+     public void setNom(String nom) {
     this.nom = nom;
   }
 
-  public String getPrenom() {
+    public String getPrenom() {
     return prenom;
   }
 
-  public void setPrenom(String prenom) {
+    public void setPrenom(String prenom) {
     this.prenom = prenom;
   }
 
-  public Sexe getSexe() {
+    public Sexe getSexe() {
     return sexe;
   }
 
-  public void setSexe(Sexe sexe) {
+    public void setSexe(Sexe sexe) {
     this.sexe = sexe;
   }
 }

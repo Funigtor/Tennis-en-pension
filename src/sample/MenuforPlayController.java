@@ -1,12 +1,13 @@
 package sample;
 
-import game.Joueur;
-import game.Match;
-import game.Sexe;
+import game.*;
+import data.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,32 +17,6 @@ public class MenuforPlayController {
 
     @FXML
     private javafx.scene.control.Button morePlayer;
-
-    /*
-    @FXML
-    private javafx.scene.control.Button RolandGarros;
-
-    @FXML
-    private javafx.scene.control.Button USOpen;
-
-    @FXML
-    private javafx.scene.control.Button Wimbledon;
-
-    @FXML
-    private javafx.scene.control.Button IndianWells;
-
-    @FXML
-    private javafx.scene.control.Button Miami;
-
-    @FXML
-    private javafx.scene.control.Button OpenAustralie;
-
-    @FXML
-    private javafx.scene.control.Button YearMatchs;
-
-    @FXML
-    private javafx.scene.control.Button MatchSolo;
-    */
 
     @FXML
     private javafx.scene.control.Button exportListe;
@@ -61,10 +36,10 @@ public class MenuforPlayController {
     @FXML
     public javafx.scene.control.TableColumn score;
 
-    private SceneWorker work = new SceneWorker();
+    @FXML
+    public javafx.scene.control.Label titre;
 
-    //temporaire
-    private ArrayList<Joueur> tebJ= new ArrayList<>();
+    private SceneWorker work = new SceneWorker();
 
     private List<Joueur> participants;
 
@@ -96,44 +71,34 @@ public class MenuforPlayController {
         score.setCellValueFactory(new PropertyValueFactory<>("score"));
         tableau.getItems().clear();
         tableau.getItems().addAll(GlobalController.getCurrentYear().getParticipants());
+        titre.setText("Annee "+GlobalController.currentYear.getAnnee());
     }
 
     @FXML
-    private void jouerMatch(){          //Lance un match entre deux joueurs aleatoires
+    private void jouerMatch() throws Exception{          //Lance un match entre deux joueurs aleatoires
         Match jouons = new Match(participants.get((int)(Math.random() * participants.size())),
                 participants.get((int)(Math.random() * participants.size())));
+        jouons.jouerMatch();
+        System.out.println(jouons.getVainqueur().getScore());
         tableau.getItems().clear();
         tableau.getItems().addAll(participants);
+        GlobalController.setTempWinner(jouons.getVainqueur());
+        try{
+            work.builder2("Winner_page.fxml","le Gagnant",400,200);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
-
+    @FXML
+    private void sauvegarder() {
+        FileChooser fileChooser = new FileChooser();
+        File toOpen = fileChooser.showSaveDialog(exportListe.getScene().getWindow());
+        SaverLoader sl = new SaverLoader(toOpen);
+        sl.saveAnnee(GlobalController.getCurrentYear());
+    }
 
     //FONCTIONs TEMPORAIRES
-    @FXML
-    private void testTabView() throws Exception{
-        try {
-            Joueur test = new Joueur(Sexe.MASCULIN);
-            tableau.getItems().add(test);
-            tebJ.add(test);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void tessupdate() throws Exception{
-        try {
-            for(int i = 0; i<tebJ.size()-1;i++){
-                Match joujou = new Match(tebJ.get(i),tebJ.get(i+1));
-                joujou.jouerMatch();
-                tableau.getItems().clear();
-                tableau.getItems().addAll(tebJ);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     private void testNewWind() throws Exception {   //switch to newgameScene
         try {
