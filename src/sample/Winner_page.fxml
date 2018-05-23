@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="200.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WinnerPageController">
    <children>
       <Label id="nouveau" layoutX="14.0" layoutY="14.0" text="ET le VAINQUEUR EST" />

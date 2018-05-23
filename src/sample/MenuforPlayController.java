@@ -8,7 +8,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MenuforPlayController {
@@ -16,28 +15,25 @@ public class MenuforPlayController {
     private javafx.scene.control.Button closeButton;
 
     @FXML
-    private javafx.scene.control.Button morePlayer;
-
-    @FXML
     private javafx.scene.control.Button exportListe;
 
     @FXML
-    public javafx.scene.control.TableView tableau;
+    private javafx.scene.control.TableView tableau;
 
     @FXML
-    public javafx.scene.control.TableColumn nom;
+    private javafx.scene.control.TableColumn nom;
 
     @FXML
-    public javafx.scene.control.TableColumn prenom;
+    private javafx.scene.control.TableColumn prenom;
 
     @FXML
-    public javafx.scene.control.TableColumn classement;
+    private javafx.scene.control.TableColumn classement;
 
     @FXML
-    public javafx.scene.control.TableColumn score;
+    private javafx.scene.control.TableColumn score;
 
     @FXML
-    public javafx.scene.control.Label titre;
+    private javafx.scene.control.Label titre;
 
     private SceneWorker work = new SceneWorker();
 
@@ -53,15 +49,6 @@ public class MenuforPlayController {
     }
 
     @FXML
-    private void goToNewPlayer() throws Exception {   //switch to newgameScene
-        try {
-            work.builder((Stage) morePlayer.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
-        }catch (Exception e){
-            System.out.print("ah!");
-        }
-    }
-
-    @FXML
     public void initialize() {
         this.participants = GlobalController.getCurrentYear().getParticipants();
         canStartTournaments = (this.participants.size() == 128) ? true : false;
@@ -69,17 +56,21 @@ public class MenuforPlayController {
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         classement.setCellValueFactory(new PropertyValueFactory<>("classement"));
         score.setCellValueFactory(new PropertyValueFactory<>("score"));
-        tableau.getItems().clear();
+        GlobalController.currentYear.getClassment().updateClassement();
         tableau.getItems().addAll(GlobalController.getCurrentYear().getParticipants());
         titre.setText("Annee "+GlobalController.currentYear.getAnnee());
     }
 
     @FXML
     private void jouerMatch() throws Exception{          //Lance un match entre deux joueurs aleatoires
-        Match jouons = new Match(participants.get((int)(Math.random() * participants.size())),
-                participants.get((int)(Math.random() * participants.size())));
+        int rand1 =(int)(Math.random() * participants.size());
+        int rand2 =(int)(Math.random() * participants.size());
+        while (rand2==rand1){
+            rand2 =(int)(Math.random() * participants.size());
+        }
+        Match jouons = new Match(participants.get(rand1),participants.get(rand2));
         jouons.jouerMatch();
-        System.out.println(jouons.getVainqueur().getScore());
+        GlobalController.currentYear.getClassment().updateClassement();
         tableau.getItems().clear();
         tableau.getItems().addAll(participants);
         GlobalController.setTempWinner(jouons.getVainqueur());
@@ -112,13 +103,12 @@ public class MenuforPlayController {
             }
     }
 
-    //FONCTIONs TEMPORAIRES
     @FXML
-    private void testNewWind() throws Exception {   //switch to newgameScene
+    private void historiqueMatch() throws Exception {   //switch to newgameScene
         try {
             work.builder2( "historique_page.fxml", "historique des tournois",400,400);
         }catch (Exception e){
-            System.out.print("ah!");
+            e.printStackTrace();
         }
     }
 }
