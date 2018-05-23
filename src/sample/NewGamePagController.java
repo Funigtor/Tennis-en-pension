@@ -82,7 +82,7 @@ public class NewGamePagController {
             SaverLoader sl = new SaverLoader(toOpen);
             // On regarde le sexe choisi
             Sexe selectedSex = (masculin.isSelected()) ? Sexe.MASCULIN : Sexe.FEMININ;
-            ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs(selectedSex)));
+            ArrayList<Joueur> list = sl.loadJoueurs(selectedSex);
             // Après chargement on va créer l'année et changer de scène
             GlobalController.setCurrentYear(new Annee(list,selectedSex,nbAnnee));
             work.builder((Stage) back.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
