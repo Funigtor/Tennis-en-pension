@@ -62,6 +62,8 @@ public class MenuforPlayController {
 
     private SceneWorker work = new SceneWorker();
 
+    public GlobalController donnee = new GlobalController();
+
     //temporaire
     private ArrayList<Joueur> tebJ= new ArrayList<>();
 
@@ -81,19 +83,33 @@ public class MenuforPlayController {
         }
     }
 
+    @FXML
+    public void initialize() {
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        classement.setCellValueFactory(new PropertyValueFactory<>("classement"));
+        score.setCellValueFactory(new PropertyValueFactory<>("score"));
+        tableau.getItems().clear();
+        tableau.getItems().addAll(donnee.getMyList());
+    }
+
+    @FXML
+    private void jouerMatch(){          //Lance un match entre deux joueurs aleatoires
+        Match jouons = new Match(donnee.getMyList().get((int)(Math.random() * donnee.getMyList().size())),
+                donnee.getMyList().get((int)(Math.random() * donnee.getMyList().size())));
+        tableau.getItems().clear();
+        tableau.getItems().addAll(donnee.getMyList());
+    }
+
+
 
     //FONCTIONs TEMPORAIRES
     @FXML
     private void testTabView() throws Exception{
         try {
             Joueur test = new Joueur(Sexe.MASCULIN);
-            nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-            prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-            classement.setCellValueFactory(new PropertyValueFactory<>("classement"));
-            score.setCellValueFactory(new PropertyValueFactory<>("score"));
             tableau.getItems().add(test);
             tebJ.add(test);
-
         }catch (Exception e){
             e.printStackTrace();
         }
