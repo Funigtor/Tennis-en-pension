@@ -68,6 +68,8 @@ public class MenuforPlayController {
 
     private List<Joueur> participants;
 
+    private boolean canStartTournaments;
+
     @FXML
     private void closeButtonAction(){   // Function closing the  stage
         // get a handle to the stage
@@ -87,6 +89,7 @@ public class MenuforPlayController {
     @FXML
     public void initialize() {
         this.participants = GlobalController.getCurrentYear().getParticipants();
+        canStartTournaments = (this.participants.size() == 128) ? true : false;
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         classement.setCellValueFactory(new PropertyValueFactory<>("classement"));

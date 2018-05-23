@@ -11,6 +11,7 @@ public class SceneWorker {
         newStage.setTitle(name);
         newStage.setScene(new Scene(root, width, height));
         newStage.show();
+        newStage.setResizable(false);
     }
 
     public void builder2(String file, String name, int width, int height) throws Exception{
@@ -19,5 +20,6 @@ public class SceneWorker {
         newStage.setTitle(name);
         newStage.setScene(new Scene(root, width, height));
         newStage.show();
+        newStage.setResizable(false);
     }
 }
