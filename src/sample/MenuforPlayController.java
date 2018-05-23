@@ -13,25 +13,32 @@ import java.util.List;
 public class MenuforPlayController {
     @FXML
     private javafx.scene.control.Button closeButton;
-
     @FXML
     private javafx.scene.control.Button exportListe;
-
+    @FXML
+    private javafx.scene.control.Button RolandGarros;
+    @FXML
+    private javafx.scene.control.Button USOpen;
+    @FXML
+    private javafx.scene.control.Button Wimbledon;
+    @FXML
+    private javafx.scene.control.Button IndianWells;
+    @FXML
+    private javafx.scene.control.Button Miami;
+    @FXML
+    private javafx.scene.control.Button OpenAustralie;
+    @FXML
+    private javafx.scene.control.Button YearMatchs;
     @FXML
     private javafx.scene.control.TableView tableau;
-
     @FXML
     private javafx.scene.control.TableColumn nom;
-
     @FXML
     private javafx.scene.control.TableColumn prenom;
-
     @FXML
     private javafx.scene.control.TableColumn classement;
-
     @FXML
     private javafx.scene.control.TableColumn score;
-
     @FXML
     private javafx.scene.control.Label titre;
 
@@ -110,5 +117,19 @@ public class MenuforPlayController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void jouerLAn() throws Exception{
+        GlobalController.currentYear.jouerAnnee();
+        RolandGarros.setCancelButton(true);
+        GlobalController.currentYear.getClassment().updateClassement();
+        tableau.getItems().clear();
+        tableau.getItems().addAll(participants);
+    }
+
+    @FXML
+    private void tournois1() throws Exception{
+
     }
 }

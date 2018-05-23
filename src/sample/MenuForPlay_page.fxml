@@ -46,7 +46,7 @@
                   <Button fx:id="IndianWells" layoutX="47.0" layoutY="193.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="IndianWells" />
                   <Button fx:id="Miami" layoutX="47.0" layoutY="235.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Miami" />
                   <Button fx:id="OpenAustralie" layoutX="47.0" layoutY="277.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="OpenAustralie" />
-                  <Button fx:id="YearMatchs" layoutX="47.0" layoutY="325.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Toute l'annee" />
+                  <Button fx:id="YearMatchs" layoutX="47.0" layoutY="325.0" mnemonicParsing="false" onAction="#jouerLAn" prefHeight="42.0" prefWidth="160.0" text="Toute l'annee" />
                </children>
             </AnchorPane>
          </right>

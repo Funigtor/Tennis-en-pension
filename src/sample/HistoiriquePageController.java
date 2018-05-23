@@ -20,14 +20,12 @@ public class HistoiriquePageController {
     private javafx.scene.control.TableView matchListe;
 
     @FXML
-    private javafx.scene.control.TableColumn j1;
-
-    @FXML
-    private javafx.scene.control.TableColumn j2;
+    private javafx.scene.control.TableColumn matchs;
 
     @FXML
     public void initialize(){
         tableTour.setCellValueFactory(new PropertyValueFactory<>("type"));
+        matchs.setCellValueFactory(new PropertyValueFactory<>("nom"));
         for (Tournoi m: GlobalController.currentYear.getTournaments()) {
             tournois.getItems().add(m);
         }
@@ -35,7 +33,16 @@ public class HistoiriquePageController {
 
     @FXML
     private void afficheMatchs() throws Exception{
-
+        GlobalController.tournoiAVoir = null;
+        for (int i = 0; i < GlobalController.currentYear.getTournaments().size(); i++)
+            if (tournois.getFocusModel().isFocused(i))
+                GlobalController.tournoiAVoir = GlobalController.currentYear.getTournaments().get(i);
+        if (GlobalController.joueurAVoir != null)
+            try {
+                tournois.getItems().addAll(GlobalController.tournoiAVoir.getMatches());
+            } catch (Exception e){
+                e.printStackTrace();
+            }
     }
 
     @FXML

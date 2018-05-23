@@ -8,6 +8,7 @@ public class MatchHistory {
     private Joueur joueurA;
     private Joueur joueurB;
     private Sexe sexe;
+    private String nom;
 
     // On stocke les jeux pour chaque sets comme un tableau [scoreJoueurA, scoreJoueurB]
     protected List<List<Integer[]>> jeux;
@@ -26,6 +27,7 @@ public class MatchHistory {
         this.sexe = sexe;
         this.numeroDeLaRonde = numeroDeLaRonde;
         this.jeux = new ArrayList<>();
+        this.nom= toString();
     }
 
     public int getNbJeuxEcart() {
