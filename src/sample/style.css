@@ -5,6 +5,13 @@
     -fx-background-position: center center;
 }
 
+.background#player{
+    -fx-background-image: url("../Image/image.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 400 550 ;
+    -fx-background-position: center center;
+}
+
 .background#title{
     -fx-background-image: url("../Image/index.jpeg");
     -fx-background-repeat: stretch;
@@ -64,6 +71,11 @@
 }
 
 .radiobutton{
+	-fx-font-family: "DejaVu Math TeX Gyre";
+    -fx-text-fill: #fdee79;
+}
+
+.linechart{
 	-fx-font-family: "DejaVu Math TeX Gyre";
     -fx-text-fill: #fdee79;
 }

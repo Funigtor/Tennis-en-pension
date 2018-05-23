@@ -10,9 +10,9 @@
    <children>
       <BorderPane id="title" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css">
          <center>
-            <TableView fx:id="matchListe" prefHeight="253.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="matchListe" onMouseClicked="#afficheMatchs" prefHeight="253.0" prefWidth="400.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="matchs" prefWidth="399.0" text="Match" />
+                  <TableColumn fx:id="matchs" prefWidth="399.0" text="match" />
               </columns>
             </TableView>
          </center>
@@ -20,7 +20,7 @@
             <Button fx:id="close" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
-            <TableView fx:id="tournois" prefHeight="155.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tournois" prefHeight="155.0" prefWidth="501.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="tableTour" prefWidth="399.0" text="Tournoi" />
               </columns>

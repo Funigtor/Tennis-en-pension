@@ -1,6 +1,7 @@
 package sample;
 
 import data.Annee;
+import data.Tournoi;
 import game.Joueur;
 import game.Sexe;
 
@@ -11,6 +12,7 @@ public class GlobalController {
     public static Joueur joueurAVoir;
 
     public static Joueur tempWinner;
+    public static Tournoi tournoiAVoir;
 
     public static Sexe getSexe() {
         // Getter de sexe

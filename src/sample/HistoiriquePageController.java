@@ -1,6 +1,7 @@
 package sample;
 
 import data.*;
+import game.MatchHistory;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
@@ -19,7 +20,10 @@ public class HistoiriquePageController {
     private javafx.scene.control.TableView matchListe;
 
     @FXML
-    private javafx.scene.control.TableColumn Matchs;
+    private javafx.scene.control.TableColumn j1;
+
+    @FXML
+    private javafx.scene.control.TableColumn j2;
 
     @FXML
     public void initialize(){
@@ -29,6 +33,10 @@ public class HistoiriquePageController {
         }
     }
 
+    @FXML
+    private void afficheMatchs() throws Exception{
+
+    }
 
     @FXML
     private void closeButtonAction(){   // Function closing the  stage
