@@ -6,29 +6,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="sample.HistoiriquePageController">
-    <children>
-        <BorderPane id="title" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css">
-            <center>
-                <TableView fx:id="matchListe" onMouseClicked="#afficheMatchs" prefHeight="253.0" prefWidth="400.0"
-                           BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn fx:id="matchs" prefWidth="399.0" text="match"/>
-                    </columns>
-                </TableView>
-            </center>
-            <bottom>
-                <Button fx:id="close" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter"
-                        BorderPane.alignment="CENTER"/>
-            </bottom>
-            <top>
-                <TableView fx:id="tournois" prefHeight="155.0" prefWidth="501.0" BorderPane.alignment="CENTER">
-                    <columns>
-                        <TableColumn fx:id="tableTour" prefWidth="399.0" text="Tournoi"/>
-                    </columns>
-                </TableView>
-            </top>
-        </BorderPane>
-    </children>
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.HistoiriquePageController">
+   <children>
+      <BorderPane id="title" prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css">
+         <center>
+            <TableView fx:id="matchListe" onMouseClicked="#afficheHistory" prefHeight="253.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn fx:id="matchs" prefWidth="399.0" text="match" />
+              </columns>
+            </TableView>
+         </center>
+         <bottom>
+            <Button fx:id="close" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" BorderPane.alignment="CENTER" />
+         </bottom>
+         <top>
+            <TableView fx:id="tournois" onMouseClicked="#afficheMatchs" prefHeight="155.0" prefWidth="501.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="tableTour" prefWidth="399.0" text="Tournoi" />
+              </columns>
+            </TableView>
+         </top>
+      </BorderPane>
+   </children>
 </AnchorPane>

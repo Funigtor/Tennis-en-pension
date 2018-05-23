@@ -62,6 +62,16 @@ public class MatchHistory {
         return perdant;
     }
 
+    public Joueur getJoueurA() {
+        // Getter de joueurA
+        return joueurA;
+    }
+
+    public Joueur getJoueurB() {
+        // Getter de joueurB
+        return joueurB;
+    }
+
     @Override
     public String toString(){
         return joueurA.getPrenom() + " " + joueurA.getNom() + " VS " + joueurB.getPrenom() + " " + joueurB.getNom();
