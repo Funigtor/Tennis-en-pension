@@ -98,6 +98,20 @@ public class MenuforPlayController {
         sl.saveAnnee(GlobalController.getCurrentYear());
     }
 
+    @FXML
+    private void selectPlayer(){
+        GlobalController.joueurAVoir = null;
+        for (int i = 0; i < this.participants.size(); i++)
+            if (tableau.getFocusModel().isFocused(i))
+                GlobalController.joueurAVoir = this.participants.get(i);
+        if (GlobalController.joueurAVoir != null)
+            try {
+                work.builder2("Player_page.fxml","Detail du joueur",400,550);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+    }
+
     //FONCTIONs TEMPORAIRES
     @FXML
     private void testNewWind() throws Exception {   //switch to newgameScene

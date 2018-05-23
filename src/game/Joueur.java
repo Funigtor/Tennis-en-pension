@@ -29,7 +29,7 @@ public class Joueur {
     this.points.add(1);
     this.rang = new ArrayList<>();
     this.rang.add(0);
-    this.score=1;
+    this.score = 1;
     this.classement=getCurrentRang();
   }
 
@@ -44,6 +44,9 @@ public class Joueur {
     this.points = new ArrayList<>();
     this.points.add(1);
     this.rang = new ArrayList<>();
+    this.rang.add(0);
+    this.score = 1;
+    this.classement = getCurrentPoints();
   }
 
   public int getClassement() {

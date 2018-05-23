@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuforPlayController">
    <children>
       <SplitPane dividerPositions="0.11706349206349206, 0.8849206349206349" layoutX="-6.0" orientation="VERTICAL" prefHeight="506.0" prefWidth="800.0">
         <items>
@@ -20,7 +20,7 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="401.0" prefWidth="531.0">
                      <children>
-                        <TableView fx:id="tableau" prefHeight="384.0" prefWidth="539.0">
+                        <TableView fx:id="tableau" layoutX="2.0" onMouseClicked="#selectPlayer" prefHeight="384.0" prefWidth="528.0">
                           <columns>
                             <TableColumn id="tableau" fx:id="nom" prefWidth="171.00003051757812" text="Nom" />
                               <TableColumn fx:id="prenom" prefWidth="162.0" text="Prenom" />

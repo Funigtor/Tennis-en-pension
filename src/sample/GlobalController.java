@@ -8,6 +8,7 @@ public class GlobalController {
     public static Annee currentYear;
     public static Sexe sexe;
     public static int nbAnnee;
+    public static Joueur joueurAVoir;
 
     public static Joueur tempWinner;
 
