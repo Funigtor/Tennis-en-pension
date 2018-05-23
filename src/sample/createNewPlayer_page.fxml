@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CreateNewPlayerController">
    <children>
-      <Label layoutX="202.0" layoutY="26.0" prefHeight="48.0" prefWidth="170.0" text="Creer nouveau joeur">
+      <Label id="nouveau" layoutX="69.0" layoutY="14.0" prefHeight="48.0" prefWidth="268.0" text="Creer nouveau joeur">
          <font>
             <Font name="DejaVu Serif Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="201.0" layoutY="152.0" />
-      <TextField fx:id="firstname" layoutX="201.0" layoutY="212.0" />
-      <Label layoutX="271.0" layoutY="105.0" text="Nom" />
-      <Label layoutX="261.0" layoutY="184.0" text="Prenom" />
-      <Label layoutX="261.0" layoutY="254.0" text="Sexe" />
-      <Label layoutX="261.0" layoutY="282.0" text="Helicoptère De Combat" fx:id="sex" />
-      <Button fx:id="next" layoutX="201.0" layoutY="317.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
-      <Button fx:id="menu" layoutX="202.0" layoutY="358.0" mnemonicParsing="false" onAction="#goToFirst" prefHeight="41.0" prefWidth="170.0" text="Menu" />
+      <TextField fx:id="name" layoutX="117.0" layoutY="122.0" />
+      <TextField fx:id="firstname" layoutX="117.0" layoutY="187.0" prefHeight="26.0" prefWidth="171.0" />
+      <Label layoutX="186.0" layoutY="98.0" text="Nom" />
+      <Label layoutX="177.0" layoutY="159.0" text="Prenom" />
+      <Label layoutX="187.0" layoutY="230.0" text="Sexe" />
+      <Label fx:id="sex" layoutX="131.0" layoutY="253.0" text="Helicoptère De Combat" />
+      <Button fx:id="next" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="171.0" text="Suivant" />
+      <Button fx:id="menu" layoutX="118.0" layoutY="339.0" mnemonicParsing="false" onAction="#goToFirst" prefHeight="41.0" prefWidth="170.0" text="Menu" />
    </children>
 </AnchorPane>

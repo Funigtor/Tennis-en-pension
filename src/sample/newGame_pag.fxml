@@ -7,32 +7,27 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NewGamePagController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NewGamePagController">
    <children>
-      <Button fx:id="oneByOne" layoutX="103.0" layoutY="173.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="41.0" prefWidth="195.0" text="create One by one" />
-      <Label layoutX="156.0" layoutY="14.0" text="New Game">
+      <Button fx:id="oneByOne" layoutX="81.0" layoutY="175.0" mnemonicParsing="false" onAction="#nextPlayer" prefHeight="42.0" prefWidth="241.0" text="creer un par un (bon jeu)" />
+      <Label id="nouveau" layoutX="137.0" layoutY="14.0" text="Nouveau jeu">
          <font>
             <Font name="Droid Sans Fallback" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="randCreat" layoutX="102.0" layoutY="132.0" mnemonicParsing="false" onAction="#randomCreatF" prefHeight="41.0" prefWidth="195.0" text="Generate random list" />
-      <Button fx:id="loadList" layoutX="103.0" layoutY="91.0" mnemonicParsing="false" onAction="#loadListe" prefHeight="41.0" prefWidth="195.0" text="Load list of player" />
-      <Button fx:id="back" layoutX="103.0" layoutY="307.0" mnemonicParsing="false" onAction="#goBack" prefHeight="41.0" prefWidth="195.0" text="Back" />
+      <Button fx:id="randCreat" layoutX="81.0" layoutY="133.0" mnemonicParsing="false" onAction="#randomCreatF" prefHeight="42.0" prefWidth="241.0" text="generer aleatoirement" />
+      <Button fx:id="loadList" layoutX="81.0" layoutY="91.0" mnemonicParsing="false" onAction="#loadListe" prefHeight="42.0" prefWidth="241.0" text="charger une liste" />
+      <Button fx:id="back" layoutX="102.0" layoutY="332.0" mnemonicParsing="false" onAction="#goBack" prefHeight="41.0" prefWidth="195.0" text="retour" />
       <TextField fx:id="date" layoutX="90.0" layoutY="259.0" />
-      <Text layoutX="121.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What year will we play?">
-         <font>
-            <Font name="DejaVu Serif Bold" size="12.0" />
-         </font>
-      </Text>
-      <Button fx:id="valider" layoutX="261.0" layoutY="259.0" mnemonicParsing="false" onAction="#setYear" prefHeight="26.0" prefWidth="48.0" text="Ok" />
-      <Label fx:id="erreur" layoutX="114.0" layoutY="319.0" prefHeight="16.0" prefWidth="171.0" textAlignment="CENTER" />
-      <RadioButton fx:id="masculin" layoutX="221.0" layoutY="60.0" mnemonicParsing="false" selected="true" text="Masculin">
+      <Button fx:id="valider" layoutX="261.0" layoutY="259.0" mnemonicParsing="false" onAction="#setYear" prefHeight="42.0" prefWidth="58.0" text="Ok" />
+      <Label id="bonannee" fx:id="erreur" layoutX="90.0" layoutY="293.0" prefHeight="16.0" prefWidth="171.0" textAlignment="CENTER" />
+      <RadioButton fx:id="masculin" layoutX="221.0" layoutY="60.0" mnemonicParsing="false" selected="true" styleClass="radiobutton" text="Masculin">
          <toggleGroup>
             <ToggleGroup fx:id="toggled" />
          </toggleGroup></RadioButton>
-      <RadioButton layoutX="310.0" layoutY="60.0" mnemonicParsing="false" text="Féminin" toggleGroup="$toggled" />
-      <Label layoutX="15.0" layoutY="61.0" text="Choisis le sexe des joueurs" />
+      <RadioButton layoutX="310.0" layoutY="60.0" mnemonicParsing="false" styleClass="radiobutton" text="Féminin" toggleGroup="$toggled" />
+      <Label id="choix" layoutX="15.0" layoutY="61.0" text="Choisis le sexe des joueurs" />
+      <Label layoutX="89.0" layoutY="235.0" prefHeight="16.0" prefWidth="222.0" text="En quelle annee jouerons-nous ?" />
    </children>
 </AnchorPane>
