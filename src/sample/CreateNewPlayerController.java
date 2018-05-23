@@ -27,6 +27,9 @@ public class CreateNewPlayerController {
     @FXML
     private javafx.scene.control.Label sex;
 
+    @FXML
+    private javafx.scene.control.Label nbJoueurs;
+
 
     private SceneWorker work = new SceneWorker();
 
@@ -38,7 +41,7 @@ public class CreateNewPlayerController {
     private void goToFirst() throws Exception { // function goback first scene
         try {
             GlobalController.setCurrentYear(new Annee(myList,type,GlobalController.nbAnnee));
-            work.builder((Stage) menu.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",400,400);
+            work.builder((Stage) menu.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -47,9 +50,12 @@ public class CreateNewPlayerController {
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
         try {
-            work.builder((Stage) next.getScene().getWindow(), "createNewPlayer_page.fxml", "create-player",400,400);
             Joueur newPlayer = new Joueur(name.getText(),firstname.getText(),type);
             this.myList.add(newPlayer);
+            nbJoueurs.setText(this.myList.size() + " / 128 joueurs");
+            // On vide les champs après chaque entrée
+            name.setText("");
+            firstname.setText("");
         }catch (Exception e){
             System.out.print("ah!");
         }
