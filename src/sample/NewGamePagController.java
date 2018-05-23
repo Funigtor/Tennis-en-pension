@@ -1,5 +1,6 @@
 package sample;
 
+import data.Annee;
 import data.SaverLoader;
 import game.*;
 import javafx.fxml.FXML;
@@ -36,9 +37,9 @@ public class NewGamePagController {
     @FXML
     private javafx.scene.control.RadioButton masculin;
 
-    private SceneWorker work = new SceneWorker();
+    private int nbAnnee = 1;
 
-    public GlobalController control = new GlobalController();
+    private SceneWorker work = new SceneWorker();
 
     @FXML
     private void nextPlayer() throws Exception { // function goback first scene
@@ -53,7 +54,11 @@ public class NewGamePagController {
     @FXML
     private void randomCreatF() throws Exception{
         try {
-            //TODO
+            ArrayList<Joueur> randPlayers = new ArrayList<>();
+            Sexe selectedSex = (masculin.isSelected()) ? Sexe.MASCULIN : Sexe.FEMININ;
+            for (int i = 0;i < 128; i++)
+                randPlayers.add(new Joueur(selectedSex));
+            GlobalController.setCurrentYear(new Annee(randPlayers,selectedSex,nbAnnee));
             work.builder((Stage) randCreat.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
         }catch (Exception e){
             System.out.print("ah!");
@@ -72,14 +77,15 @@ public class NewGamePagController {
     @FXML
     private void loadListe() throws Exception{
         try {
-            //TODO
             FileChooser fileChooser = new FileChooser();
             File toOpen = fileChooser.showOpenDialog(loadList.getScene().getWindow());
             SaverLoader sl = new SaverLoader(toOpen);
             // On regarde le sexe choisi
             Sexe selectedSex = (masculin.isSelected()) ? Sexe.MASCULIN : Sexe.FEMININ;
             ArrayList<Joueur> list = new ArrayList<>(Arrays.asList(sl.loadJoueurs(selectedSex)));
-            control.setMyList(list);
+            // Après chargement on va créer l'année et changer de scène
+            GlobalController.setCurrentYear(new Annee(list,selectedSex,nbAnnee));
+            work.builder((Stage) back.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
         }catch (Exception e){
             System.out.print("ah!");
         }
@@ -88,8 +94,8 @@ public class NewGamePagController {
     @FXML
     private void setYear() throws Exception{
         try{
-            control.Annee= Integer.parseInt(date.getText());
-            System.out.println(control.Annee);
+            nbAnnee = Integer.parseInt(date.getText());
+            GlobalController.nbAnnee = nbAnnee;
             erreur.setText("année valide");
         }catch (Exception e){
             erreur.setText("Mauvaise date");

@@ -1,13 +1,11 @@
 package sample;
 
-import game.Joueur;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import data.*;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class HomePageController {
     @FXML
@@ -43,7 +41,7 @@ public class HomePageController {
         File toOpen = fileChooser.showOpenDialog(loadPage.getScene().getWindow());
         SaverLoader sl = new SaverLoader(toOpen);
         try {
-            GlobalController.MyAnnee.add(sl.loadAnnee());
+            GlobalController.setCurrentYear(sl.loadAnnee());
             // On change de scène si on a bien un fichier correct
             try {
                 work.builder((Stage) loadPage.getScene().getWindow(), "MenuForPlay_page.fxml", "Tennis-en-pension",800,500);
