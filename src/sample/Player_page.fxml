@@ -6,28 +6,32 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="player" prefHeight="550.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PlayerPageController">
-   <children>
-      <Label id="texte" fx:id="name" layoutX="15.0" layoutY="35.0" text="NOM PRENOM" />
-      <Label id="texte" fx:id="sexe" layoutX="45.0" layoutY="79.0" text="Sexe" />
-      <LineChart fx:id="tabPoints" layoutX="15.0" layoutY="117.0" prefHeight="205.0" prefWidth="370.0" title="Evolution des points">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
-      <LineChart fx:id="tabRangs" layoutX="24.0" layoutY="322.0" prefHeight="205.0" prefWidth="358.0" styleClass="linechart" title="Evolution du classement">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <javafx.scene.chart.NumberAxis autoRanging="false" lowerBound="128" tickUnit="10" upperBound="1" />
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </LineChart>
-      <Label id="texte" fx:id="puissance" layoutX="261.0" layoutY="35.0" text="Puissance :" />
-      <Label id="texte" fx:id="endurance" layoutX="261.0" layoutY="79.0" text="Endurance : " />
-   </children>
+<AnchorPane id="player" prefHeight="550.0" prefWidth="400.0" styleClass="background" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.PlayerPageController">
+    <children>
+        <Label id="texte" fx:id="name" layoutX="15.0" layoutY="35.0" text="NOM PRENOM"/>
+        <Label id="texte" fx:id="sexe" layoutX="45.0" layoutY="79.0" text="Sexe"/>
+        <LineChart fx:id="tabPoints" layoutX="15.0" layoutY="117.0" prefHeight="205.0" prefWidth="370.0"
+                   title="Evolution des points">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </LineChart>
+        <LineChart fx:id="tabRangs" layoutX="24.0" layoutY="322.0" prefHeight="205.0" prefWidth="358.0"
+                   styleClass="linechart" title="Evolution du classement">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <javafx.scene.chart.NumberAxis autoRanging="false" lowerBound="128" tickUnit="10" upperBound="1"/>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </LineChart>
+        <Label id="texte" fx:id="puissance" layoutX="261.0" layoutY="35.0" text="Puissance :"/>
+        <Label id="texte" fx:id="endurance" layoutX="261.0" layoutY="79.0" text="Endurance : "/>
+    </children>
 </AnchorPane>

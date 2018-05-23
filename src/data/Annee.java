@@ -60,8 +60,10 @@ public class  Annee {
   }
 
   public void jouerAnnee(){
-      for (Tournoi i : tournaments)
-          i.jouerTournoi();
+      for (Tournoi i : tournaments) {
+        i.jouerTournoi();
+        classment.updateClassement();
+      }
   }
 
   public Annee(List<Joueur> participants, Sexe sexe) {

@@ -6,7 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class SceneWorker {
-    public void builder(Stage newStage , String file, String name, int width, int height) throws Exception{
+    // permet de remplacer la fenetre actuel par celle de file
+    public void builder(Stage newStage, String file, String name, int width, int height) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource(file));
         newStage.setTitle(name);
         newStage.setScene(new Scene(root, width, height));
@@ -14,7 +15,8 @@ public class SceneWorker {
         newStage.setResizable(false);
     }
 
-    public void builder2(String file, String name, int width, int height) throws Exception{
+    // ouvre une nouvelle fenetre
+    public void builder2(String file, String name, int width, int height) throws Exception {
         Stage newStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource(file));
         newStage.setTitle(name);

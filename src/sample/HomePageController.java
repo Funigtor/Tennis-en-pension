@@ -8,19 +8,21 @@ import data.*;
 import java.io.File;
 
 public class HomePageController {
+
+    //liste des elements FXML utilises
     @FXML
     private javafx.scene.control.Button closeButton;
-
     @FXML
     private javafx.scene.control.Button newPage;
-
     @FXML
     private javafx.scene.control.Button loadPage;
+
+
 
     private SceneWorker work = new SceneWorker();
 
     @FXML
-    private void closeButtonAction(){   // Function closing the  stage
+    private void closeButtonAction() {   // ferme la fenetre du jeu
         // get a handle to the stage
         Stage stage = (Stage) closeButton.getScene().getWindow();
         stage.close();

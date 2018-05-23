@@ -6,6 +6,9 @@ import game.Joueur;
 import game.Sexe;
 
 public class GlobalController {
+
+    //nous permet de faire communiquer les differents controllers
+
     public static Annee currentYear;
     public static Sexe sexe;
     public static int nbAnnee;

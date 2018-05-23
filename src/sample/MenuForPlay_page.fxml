@@ -40,12 +40,12 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="381.0" prefWidth="258.0" styleClass="background" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="MatchSolo" layoutX="47.0" layoutY="14.0" mnemonicParsing="false" onAction="#jouerMatch" prefHeight="42.0" prefWidth="160.0" text="Match Amical" />
-                  <Button fx:id="RolandGarros" layoutX="47.0" layoutY="67.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="RolandGarros" />
-                  <Button fx:id="USOpen" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="USOpen" />
-                  <Button fx:id="Wimbledon" layoutX="47.0" layoutY="151.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Wimbledon" />
-                  <Button fx:id="IndianWells" layoutX="47.0" layoutY="193.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="IndianWells" />
-                  <Button fx:id="Miami" layoutX="47.0" layoutY="235.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="Miami" />
-                  <Button fx:id="OpenAustralie" layoutX="47.0" layoutY="277.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="160.0" text="OpenAustralie" />
+                  <Button fx:id="RolandGarros" layoutX="47.0" layoutY="67.0" mnemonicParsing="false" onAction="#tournois1" prefHeight="42.0" prefWidth="160.0" text="RolandGarros" />
+                  <Button fx:id="USOpen" layoutX="47.0" layoutY="109.0" mnemonicParsing="false" onAction="#tournois2" prefHeight="42.0" prefWidth="160.0" text="USOpen" />
+                  <Button fx:id="Wimbledon" layoutX="47.0" layoutY="151.0" mnemonicParsing="false" onAction="#tournois3" prefHeight="42.0" prefWidth="160.0" text="Wimbledon" />
+                  <Button fx:id="IndianWells" layoutX="47.0" layoutY="193.0" mnemonicParsing="false" onAction="#tournois4" prefHeight="42.0" prefWidth="160.0" text="IndianWells" />
+                  <Button fx:id="Miami" layoutX="47.0" layoutY="235.0" mnemonicParsing="false" onAction="#tournois5" prefHeight="42.0" prefWidth="160.0" text="Miami" />
+                  <Button fx:id="OpenAustralie" layoutX="47.0" layoutY="277.0" mnemonicParsing="false" onAction="#tournois6" prefHeight="42.0" prefWidth="160.0" text="OpenAustralie" />
                   <Button fx:id="YearMatchs" layoutX="47.0" layoutY="325.0" mnemonicParsing="false" onAction="#jouerLAn" prefHeight="42.0" prefWidth="160.0" text="Toute l'annee" />
                </children>
             </AnchorPane>

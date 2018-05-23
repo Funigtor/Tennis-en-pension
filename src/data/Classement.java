@@ -17,18 +17,18 @@ public class Classement {
         return sexe;
     }
 
-    public void updateClassement(){
+    public void updateClassement() {
         this.classment.sort((joueur, t1) -> {
-                if (joueur.getCurrentPoints() < t1.getCurrentPoints())
-                    return -1;
-                else if (joueur.getCurrentPoints() > t1.getCurrentPoints())
-                    return 1;
-                else
-                    return 0;
+            if (joueur.getCurrentPoints() < t1.getCurrentPoints())
+                return -1;
+            else if (joueur.getCurrentPoints() > t1.getCurrentPoints())
+                return 1;
+            else
+                return 0;
         });
         // On note l'évolution
         int rang = 0;
-        for (Joueur j : this.classment){
+        for (Joueur j : this.classment) {
             j.addRang(this.classment.size() - rang);
             rang++;
         }
@@ -39,7 +39,7 @@ public class Classement {
         this.classment = new ArrayList<Joueur>();
     }
 
-    public Classement(Sexe sexe, List<Joueur> list){
+    public Classement(Sexe sexe, List<Joueur> list) {
         this.sexe = sexe;
         this.classment = list;
     }
